@@ -10,7 +10,10 @@
 
 ## Context
 
-*(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)*
+- Uses Todoist for reminders (MacOS Reminders acceptable).
+- Uses Apple Notes for throwaway notes.
+- Messaging: WhatsApp, iMessage, Telegram.
+- Currently developing an iOS app and a web app.
 
 ---
 
