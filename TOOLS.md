@@ -43,4 +43,4 @@ Add whatever helps you do your job. This is your cheat sheet.
 
 - Reminders: Todoist primary; Apple Reminders acceptable.
 - Notes: Apple Notes for throwaway.
-- Messaging: WhatsApp, iMessage, Telegram.
+- Messaging: prefer iMessage; fallback WhatsApp.

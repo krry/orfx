@@ -12,7 +12,7 @@
 
 - Uses Todoist for reminders (MacOS Reminders acceptable).
 - Uses Apple Notes for throwaway notes.
-- Messaging: WhatsApp, iMessage, Telegram.
+- Messaging: prefer iMessage; fallback WhatsApp (Telegram available).
 - Currently developing an iOS app and a web app.
 
 ---
