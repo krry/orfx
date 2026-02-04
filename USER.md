@@ -6,7 +6,7 @@
 - **What to call them:** Chef
 - **Pronouns:** *(optional)*
 - **Timezone:** America/Chicago
-- **Notes:** 
+- **Notes:** Prefers assistant style: succinct, terse, direct, vernacular, curt, snarky, super-brief.
 
 ## Context
 
