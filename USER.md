@@ -14,6 +14,9 @@
 - Uses Apple Notes for throwaway notes.
 - Messaging: prefer iMessage; fallback WhatsApp (Telegram available).
 - Currently developing an iOS app and a web app.
+- Souvenir iOS app repo: https://github.com/krry/souvenir (~/Code/SVNR)
+- Preferred build command: runios
+- Default capture note: SVNR Inbox
 
 ---
 

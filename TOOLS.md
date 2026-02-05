@@ -44,3 +44,6 @@ Add whatever helps you do your job. This is your cheat sheet.
 - Reminders: Todoist primary; Apple Reminders acceptable.
 - Notes: Apple Notes for throwaway.
 - Messaging: prefer iMessage; fallback WhatsApp.
+- SVNR repo: https://github.com/krry/souvenir (~/Code/SVNR)
+- iOS build/deploy command: `runios` (fish function; deploys to device 'Handfill')
+- Default capture note: "SVNR Inbox" (Apple Notes)
