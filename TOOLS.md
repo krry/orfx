@@ -48,4 +48,6 @@ Add whatever helps you do your job. This is your cheat sheet.
 - iOS build/deploy command: `runios` (fish function; deploys to device 'Handfill')
 - Default capture note: "SVNR Inbox" (Apple Notes)
 - Notion KB root (draft voice): https://www.notion.so/kerryourself/40a331193506464fb6e7cdc2d8bd6619?v=508b2e2c0625412f979c058ffb664056
+- Notion Reading List: https://www.notion.so/kerryourself/145a7a1e80d94648bd2aaa590b85fa09?v=f80e1ed185ba4ad5b29198bfafd90d29
+- Notion Voice Inkwell: https://www.notion.so/kerryourself/Voice-Inkwell-2fe2ddb8813980948e30f1248e9a7692
 - Voice drafts: start with "As if…"; source primarily pages tagged "🧿 Intend" (Notion)
