@@ -47,3 +47,4 @@ Add whatever helps you do your job. This is your cheat sheet.
 - SVNR repo: https://github.com/krry/souvenir (~/Code/SVNR)
 - iOS build/deploy command: `runios` (fish function; deploys to device 'Handfill')
 - Default capture note: "SVNR Inbox" (Apple Notes)
+- Notion KB root (draft voice): https://www.notion.so/kerryourself/40a331193506464fb6e7cdc2d8bd6619?v=508b2e2c0625412f979c058ffb664056
