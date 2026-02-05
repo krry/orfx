@@ -51,6 +51,7 @@ Add whatever helps you do your job. This is your cheat sheet.
 - Notion Reading List: https://www.notion.so/kerryourself/145a7a1e80d94648bd2aaa590b85fa09?v=f80e1ed185ba4ad5b29198bfafd90d29
 - Notion Voice Inkwell: https://www.notion.so/kerryourself/Voice-Inkwell-2fe2ddb8813980948e30f1248e9a7692
 - Voice drafts: start with "As if…"; source primarily pages tagged "🧿 Intend" (Notion)
+- Draft defaults: clean (no label), short (1–2 paras)
 - Voice blend influences (weights):
   - heavy: James P. Carse, Alan Watts
   - medium: Terence McKenna, Michael A. Singer
