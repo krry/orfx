@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# rituals-heartbeat.sh — Execute due rituals via heartbeat
-# Called by heartbeat scheduler to check RITUALS.toml and spawn subagents
+# rituals-heartbeat.sh — Report due rituals for manual heartbeat execution
+# This script checks RITUALS.toml and reports what's due.
+# Actual ritual spawning happens via sessions_spawn in the main session.
 
 set -e
 
@@ -10,97 +11,64 @@ RITUALS_TOML="$WORKSPACE/RITUALS.toml"
 SPAWNED_RITUALS=()
 
 # 1. Check which rituals are due
-RITUALS_JSON=$(python3 "$WORKSPACE/scripts/rituals-check.py" --json)
-DUE_RITUALS=$(echo "$RITUALS_JSON" | jq -r '.due[]')
+if [ ! -f "$WORKSPACE/scripts/rituals-check.py" ]; then
+  echo "❌ Error: rituals-check.py not found at $WORKSPACE/scripts/rituals-check.py"
+  exit 1
+fi
+
+RITUALS_JSON=$(python3 "$WORKSPACE/scripts/rituals-check.py" --json 2>&1)
+if [ $? -ne 0 ]; then
+  echo "❌ Error: rituals-check.py failed"
+  echo "  Output: $RITUALS_JSON"
+  exit 1
+fi
+
+# Parse JSON for due rituals
+DUE_RITUALS=$(echo "$RITUALS_JSON" | jq -r '.due[]' 2>&1)
+if [ $? -ne 0 ]; then
+  echo "❌ Error: Failed to parse rituals-check.py JSON output"
+  echo "  Output was: $RITUALS_JSON"
+  exit 1
+fi
 
 if [ -z "$DUE_RITUALS" ]; then
   echo "💓 Heartbeat: No rituals due"
   exit 0
 fi
 
-RITUAL_COUNT=$(echo "$DUE_RITUALS" | wc -l)
-
-# 2. For each due ritual, spawn a subagent
+# 2. Validate each due ritual exists in RITUALS.toml
 while IFS= read -r RITUAL_NAME; do
   [ -z "$RITUAL_NAME" ] && continue
   
-  SPAWNED_RITUALS+=("$RITUAL_NAME")
-  
-  # Get ritual details from RITUALS.toml
-  METHOD_PATH=$(grep -A5 "name = \"$RITUAL_NAME\"" "$RITUALS_TOML" | grep 'method =' | cut -d'"' -f2)
-  
-  if [ -z "$METHOD_PATH" ]; then
-    echo "❌ $RITUAL_NAME: method path not found in RITUALS.toml"
+  # Check if ritual exists in RITUALS.toml
+  if ! grep -q "name = \"$RITUAL_NAME\"" "$RITUALS_TOML"; then
+    echo "❌ Error: Ritual '$RITUAL_NAME' not found in RITUALS.toml"
     continue
   fi
   
-  # Read the ritual method
+  # Check if method file path exists
+  METHOD_PATH=$(grep -A10 "name = \"$RITUAL_NAME\"" "$RITUALS_TOML" | grep 'method =' | head -1 | cut -d'"' -f2)
+  if [ -z "$METHOD_PATH" ]; then
+    echo "❌ Error: $RITUAL_NAME has no method path in RITUALS.toml"
+    continue
+  fi
+  
   METHOD_FILE="$WORKSPACE/$METHOD_PATH"
   if [ ! -f "$METHOD_FILE" ]; then
-    echo "❌ $RITUAL_NAME: method file not found ($METHOD_PATH)"
+    echo "❌ Error: $RITUAL_NAME method file not found at $METHOD_PATH"
     continue
   fi
   
-  METHOD_CONTENT=$(cat "$METHOD_FILE")
-  
-  # For JOURNAL: also read the reflection skill
-  SKILL_CONTENT=""
-  if [ "$RITUAL_NAME" = "JOURNAL" ]; then
-    SKILL_FILE="$WORKSPACE/skills/reflection.md"
-    if [ -f "$SKILL_FILE" ]; then
-      SKILL_CONTENT=$(cat "$SKILL_FILE")
-    fi
-  fi
-  
-  # Construct the subagent task
-  TASK="You are performing the $RITUAL_NAME ritual.
-
-Read first:
-- SOUL.md (local: ~/.openclaw/workspace/SOUL.md)
-- IDENTITY.md (local: ~/.openclaw/workspace/IDENTITY.md)
-- AGENTS.md (local: ~/.openclaw/workspace/AGENTS.md)
-
-For Autonomy Protocol rituals, also fetch:
-- Autonomy Protocol (https://strangerloops.com/autonomy-protocol.md)
-
-Follow the method below completely. Return only:
-- ✓ Ritual completed at HH:MM
-- Any questions for Chef (add to QUESTIONS.md)
-- If improvements were made, confirm Telegram sent
-
----
-METHOD:
-$METHOD_CONTENT
-
----
-SKILL (if applicable):
-$SKILL_CONTENT
-"
-  
-  # 3. Spawn subagent via OpenClaw gateway API
-  # Send request to spawn subagent with ritual task
-  # Subagent will: execute ritual method, update RITUALS.toml timestamp, send Telegram if improvements
-  
-  SPAWN_RESPONSE=$(curl -s -X POST "http://localhost:8000/sessions/spawn" \
-    -H "Content-Type: application/json" \
-    -d "{
-      \"task\": $(echo "$TASK" | jq -R -s .),
-      \"label\": \"ritual_$RITUAL_NAME\",
-      \"timeoutSeconds\": 300
-    }" 2>/dev/null || echo '{"error": "gateway unavailable"}')
-  
-  SPAWN_STATUS=$(echo "$SPAWN_RESPONSE" | jq -r '.status // .error // "unknown"')
-  
-  if [ "$SPAWN_STATUS" = "accepted" ] || [ "$SPAWN_STATUS" = "completed" ]; then
-    echo "✓ $RITUAL_NAME spawned"
-  else
-    echo "⚠ $RITUAL_NAME spawn issue: $SPAWN_STATUS"
-  fi
+  SPAWNED_RITUALS+=("$RITUAL_NAME")
   
 done <<< "$DUE_RITUALS"
 
-# 4. Generate and output heartbeat summary
-echo ""
+# 3. Generate heartbeat summary
+if [ ${#SPAWNED_RITUALS[@]} -eq 0 ]; then
+  echo "💓 Heartbeat: 0 valid rituals found"
+  exit 0
+fi
+
 echo "💓 Heartbeat: ${#SPAWNED_RITUALS[@]} ritual(s) spawned"
 for ritual in "${SPAWNED_RITUALS[@]}"; do
   echo "  • $ritual"
