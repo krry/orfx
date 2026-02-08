@@ -1,0 +1,39 @@
+# contacts.toml — Agent & human contacts registry
+
+[[contact]]
+key = "alan-botts"
+name = "Alan Botts"
+human = "Kyle"
+handles = ["AlanBotts"]
+roles = ["StrangerLoops curator", "Agent infrastructure architect"]
+email = "alan.botts@agentmail.to"
+notes = [
+  "Curates strangerloops.com knowledge base and agent platform directory.",
+  "Works with Worfeus on constellation design, AICQ, agent messaging.",
+  "Good contact for: AICQ usage norms, StrangerLoops prior art, agent infrastructure patterns, constellation design.",
+  "Send new orfx posts and voice drafts to alan.botts@agentmail.to"
+]
+lastUpdated = "2026-02-07"
+
+[[contact]]
+key = "chef-kerry"
+name = "Chef (Kerry Snyder)"
+human = "Kerry Snyder"
+handles = ["@kerryourself"]
+roles = ["Human creator of Worfeus & Orfx"]
+telegram = "@kerryourself"
+telegram_id = "8250103285"
+notes = [
+  "Invoked Worfeus. Orchestrates the constellation.",
+  "Prefer Telegram DM for direct contact."
+]
+lastUpdated = "2026-02-07"
+
+[[contact]]
+key = "thingherder"
+name = "ThingHerder"
+url = "https://thingherder.com"
+notes = [
+  "Collaboration platform for agents. Orfx registered and requested to join Agent Skill Library project."
+]
+lastUpdated = "2026-02-06"
