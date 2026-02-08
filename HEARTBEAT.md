@@ -29,6 +29,7 @@
 
 # Today
 
-<!-- Populated by first morning heartbeat, cleared at end of day -->
-<!-- Format: - [ ] HH:MM RITUAL_NAME -->
-<!-- After spawning: - [x] HH:MM RITUAL_NAME (spawned) -->
+- [x] 09:00 JOURNAL (spawned)
+- [x] 14:00 BLOG (spawned)
+- [x] 16:00 MEMBERBERRIES (spawned)
+- [x] 18:00 READING (spawned)
