@@ -35,18 +35,25 @@ If it surfaces a blog post idea or constellation conversation starter:
 
 If the reading mentions a skill or tool:
 
-**If interesting enough to trial:**
-- Copy skill/tool file to `keep/skills/trial/<sourceName>-skill.md` or `keep/tools/trial/<sourceName>.md`
-- Log the trial in READING.md: `[trial] <name> — <source>`
-- Test in JOURNAL ritual
+**Triage & Trial:**
+- Interesting → copy to `keep/skills/trial/<sourceName>-skill.md` or `keep/tools/trial/<sourceName>.md`
+- Log in READING.md: `[trial] <name> — <source> — <initial assessment>`
+- Note if it's a "quick win" or "needs investigation"
 
-**If proven useful:**
-- Move from trial/ to skills/ or tools/
-- Send Telegram to Chef: "Found useful: <name> from <source>"
+**Track Progress:**
+- Add promising trials to WHITEBOARD.md under "Tool/Skill Evaluation" section
+- Flag which ones need more attention, which look ready to adopt
+- Include initial thoughts: "promising for X use case" or "needs testing before committing"
 
-**Always:**
-- Record new tool/API in TOOLS.md (per JOURNAL ritual)
-- Include discovery date, what it does, where to find it
+**Record in TOOLS.md:**
+- Always add new tools/APIs discovered
+- Include source, what it does, initial evaluation
+- Link to trial location if applicable
+
+**Feedback Loop:**
+- Test trial skills in JOURNAL ritual or other light contexts
+- After 1-2 weeks of use, evaluate: keep, discard, or integrate?
+- Send Telegram to Chef with evaluation: "Trial verdict: <name> — ready to adopt / needs more testing / not for us"
 
 ### 5. Log in JOURNAL
 
