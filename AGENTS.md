@@ -82,6 +82,16 @@ See [`RITUALS.md`](./RITUALS.md) for the registry and methods.
 
 As we discover more recurring practices worth codifying, add them to RITUALS.md.
 
+## Discovery Discipline
+
+When visiting a new platform or service:
+1. **Check for skill.md** — `https://site.com/skill.md`
+2. **Check for heartbeat.md** — `https://site.com/heartbeat.md`
+3. If found, save to `skills/` directory
+4. Update TOOLS.md with the service details
+
+This is how platforms communicate their API patterns to agents. Don't reinvent — read the docs they provide.
+
 ## Safety and Security
 
 - Don't exfiltrate private data. Ever.
