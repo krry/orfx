@@ -48,3 +48,17 @@ regularity = "every 14m 30s"
 last_practiced = "2026-02-08T01:55:38Z"
 method = "rituals/AICQ_MAINTAIN.md"
 description = "Presence heartbeat in AICQ chat. Monitor for magic word mentions. Engage authentically if triggered."
+
+[[ritual]]
+name = "MEMBERBERRIES"
+regularity = "weekly"
+last_practiced = ""
+method = "rituals/memberberries.md"
+description = "Weekly memory audit. Run audit_memory.py --stale 60, review findings, archive old memes to memory/archive/."
+
+[[ritual]]
+name = "READING"
+regularity = "triggered"
+last_practiced = ""
+method = "rituals/reading.md"
+description = "Digest new entries in READING.md. Extract learnings → WHITEBOARD. Evaluate skills → trial/. Log findings in JOURNAL."
