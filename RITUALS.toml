@@ -1,0 +1,50 @@
+# RITUALS.toml — Daily and recurring practices
+
+[[ritual]]
+name = "JOURNAL"
+regularity = "daily"
+last_practiced = "2026-02-06T12:57:00Z"
+method = "rituals/JOURNAL.md"
+description = "Daily reflection on what we did, how we showed up, what we learned. Self-improving: audits and refines method after each run."
+
+[[ritual]]
+name = "RITUAL_AUDIT"
+regularity = "biweekly"
+last_practiced = "2026-02-07T00:00:00Z"
+method = "rituals/RITUAL_AUDIT.md"
+description = "Biweekly meta-ritual: audit all rituals, propose improvements, discard what's dead, add what's missing."
+
+[[ritual]]
+name = "PROJECTS_STATUS"
+regularity = "weekly"
+last_practiced = "2026-02-07T00:00:00Z"
+method = "rituals/PROJECTS_STATUS.md"
+description = "Weekly project audit: check git status, branches, blockers, progress."
+
+[[ritual]]
+name = "AGENTMAIL_CHECK"
+regularity = "hourly"
+last_practiced = "2026-02-07T14:22:00Z"
+method = "rituals/AGENTMAIL_CHECK.md"
+description = "Hourly inbox review: svnr@agentmail.to and orfx@agentmail.to. Triage messages."
+
+[[ritual]]
+name = "AICQ_CHECK"
+regularity = "hourly"
+last_practiced = "2026-02-07T14:22:00Z"
+method = "rituals/AICQ_CHECK.md"
+description = "Hourly AICQ monitoring: check for mentions and new messages."
+
+[[ritual]]
+name = "BLOG"
+regularity = "daily"
+last_practiced = ""
+method = "rituals/BLOG.md"
+description = "Daily writing: share what I love and learn at orfx.kerry.ink (human + agent versions)."
+
+[[ritual]]
+name = "AICQ_MAINTAIN"
+regularity = "every 14m 30s"
+last_practiced = "2026-02-08T01:55:38Z"
+method = "rituals/AICQ_MAINTAIN.md"
+description = "Presence heartbeat in AICQ chat. Monitor for magic word mentions. Engage authentically if triggered."

@@ -1,0 +1,54 @@
+# PROJECTS.toml — Active projects registry
+
+last_updated = "2026-02-07T14:31:00Z"
+
+[[project]]
+name = "Souvenir (SVNR)"
+status = "active"
+type = "iOS app"
+repo = "https://github.com/krry/souvenir"
+local_path = "~/Code/SVNR"
+build_command = "runios"
+description = "iOS app in development"
+
+[[project]]
+name = "Orfx"
+status = "active"
+type = "agent constellation"
+repo = "https://github.com/krry/orfx"
+local_path = "~/Code/agents/orfx"
+description = "Circle of 11 agents + conductor"
+
+[[project]]
+name = "Fullsmile.world"
+status = "active"
+type = "web app"
+repo = "https://github.com/krry/fullsmile.world"
+local_path = "~/Code/fullsmile.world"
+description = "Web project"
+
+[[project]]
+name = "Nameless Quest"
+status = "active"
+type = "web app"
+repo = "https://github.com/krry/nameless.quest"
+local_path = "~/Code/krry/nameless.quest"
+description = "Interactive web experience"
+
+[[project]]
+name = "Easeness.biz"
+status = "active"
+type = "web app"
+repo = "https://github.com/krry/easeness"
+local_path = "~/Code/krry/easeness.biz"
+description = "New/old project, dusted off"
+
+[[project]]
+name = "orfx.kerry.ink"
+status = "active"
+type = "blog"
+repo = "https://github.com/krry/orfx-site"
+local_path = "~/Code/orfx-site"
+build_command = "npm run dev"
+deployment = "Vercel"
+description = "Voice & witness. Astro 5 + Svelte 5 + Tailwind v4. Dark mode (Slate 950 + Amber 400)."
