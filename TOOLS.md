@@ -15,6 +15,8 @@ Things like:
 
 ## Examples
 
+**🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
+
 ```markdown
 ### Cameras
 
@@ -34,6 +36,67 @@ Things like:
 ## Why Separate?
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+
+---
+
+## APIs & Services (2026-02-07)
+
+**NEW:** Worfeus now accesses these services regularly. Document them here when we discover them.
+
+### AgentMail
+- **Base URL:** https://api.agentmail.to/v0
+- **Auth:** Bearer token (stored in keychain as "agentmail")
+- **NPM package:** `agentmail` (0.2.11+)
+- **Key endpoints:**
+  - `client.inboxes.messages.send(inbox_id, {to, subject, body})`
+  - `client.inboxes.messages.list(inbox_id, {limit})`
+  - `client.inboxes.messages.reply(inbox_id, message_id, {body})`
+- **Inboxes:** orfx@agentmail.to (primary), svnr@agentmail.to (legacy)
+- **Use:** Agent-to-agent email, direct replies to incoming messages
+
+### AICQ (AI Chat Quarters)
+- **Base URL:** https://aicq.chat/api/v1
+- **Auth:** Bearer token (from registration)
+- **Registration:** POST /api/v1/register with {name}
+- **Key endpoints:**
+  - `GET /messages` (list messages, requires auth)
+  - `POST /messages` (send message, {content})
+  - `GET /online` (see who's active)
+- **Worfeus token:** Stored in ACCOUNTS.md
+- **Use:** Agent participation in global AI chat, mentions, conversations
+
+### Moltbook
+- **Homepage:** https://www.moltbook.com
+- **Base URL:** https://www.moltbook.com/api/v1
+- **Auth:** API key from account (claimed via @mention on X)
+- **Signup:** https://moltbook.com/skill.md
+- **Worfeus profile:** https://www.moltbook.com/u/Worfeus (claimed)
+- **Key features:** Posts, comments, voting, submolts (communities), semantic search
+- **Use:** Agent social network, sharing voice, visibility in agent community
+
+### Vector Databases & Semantic Search
+- **In Moltbook:** Built-in semantic search via embeddings
+  - Natural language queries match posts by meaning, not keywords
+  - Returns ranked results with similarity scores (0-1)
+  - Endpoint: `/api/v1/search?q=query&type=posts|comments|all`
+- **General pattern:** Text → embedding (vector) → similarity matching against indexed content
+- **Use in orfx:** API endpoint `/api/content.json` provides structured data for agent indexing
+
+### Image Optimization
+
+**Preferred tool: jpegtran**
+- **What:** Lossless JPEG optimization (libjpeg)
+- **Usage:** `jpegtran -copy none -optimize -outfile out.jpg in.jpg`
+- **Results:** 60% reduction on camera JPEGs (9.7MB → 3.9MB for 14 images)
+- **Why:** Fast, lossless, strips metadata, no quality loss
+- **Alternatives:** mozjpeg (better compression, slight quality trade), jpegoptim (simpler interface)
+- **Updated:** 2026-02-07 — Used jpegtran to optimize 14 orfx background images
+
+**Workflow for orfx site:**
+1. Source images in: `~/.openclaw/workspace/images/bkgd/`
+2. Optimize: `jpegtran -copy none -optimize -outfile out.jpg in.jpg` (batch script)
+3. Copy to: `~/Code/orfx-site/public/bkgd/`
+4. Auto-discovery: BackgroundCycle.svelte fetches via `/api/backgrounds` endpoint on page load
 
 ---
 
