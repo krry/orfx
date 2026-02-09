@@ -66,7 +66,7 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
 
 | Platform/Username | Storage | Key/Var Name | Scope | Status |
 |-------------------|---------|--------------|-------|--------|
-| fish.audio/Worfeus | Keychain | `openclaw.fish.audio.api_key` (acct: `fish_audio`) | TTS API | ⏳ NEEDS KEY |
+| fish.audio/kerryourself | Keychain | service `key.api.fish.audio` (acct: `fishaudio_apikey_kerryourself`) | TTS API | ✅ ACTIVE |
 | Env Var | ENV | `FISH_AUDIO_API_KEY` | Runtime access | - |
 
 ---
