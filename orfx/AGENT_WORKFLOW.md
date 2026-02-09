@@ -60,6 +60,13 @@ Give reviewers a crisp packet:
    overrule QUALITY gates.
 4) If the team is stuck: FOOL provides the tie-breaker reframe.
 
+## CONDUCTOR Structure (Dudamel’s non-negotiables)
+
+For any engineering/devsign request, CONDUCTOR must explicitly name:
+- **Phase:** Plan | Work | Review | Compound
+- **Verification hook:** what evidence/steps QUALITY will use to gate
+- **Compound target:** where we will record the solved problem (usually `orfx/compound-docs/`)
+
 ## Too-Many-Cooks Watchdog
 Any agent may flag this. CONDUCTOR owns the fix.
 
