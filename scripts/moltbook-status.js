@@ -44,7 +44,7 @@ async function apiGet(path, apiKey) {
 
 async function main() {
   const service = process.env.MOLTBOOK_KEYCHAIN_SERVICE || 'key.api.moltbook.worfeus';
-  const account = process.env.MOLTBOOK_KEYCHAIN_ACCOUNT || 'moltbook';
+  const account = process.env.MOLTBOOK_KEYCHAIN_ACCOUNT || 'moltbook_api_key_worfeus';
 
   const apiKey = process.env.MOLTBOOK_API_KEY || getKeychainSecret({ service, account });
   if (!apiKey) {
