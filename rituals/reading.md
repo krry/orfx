@@ -4,9 +4,9 @@
 
 ## Schedule
 
-- **Frequency:** Triggered (when new items appear in READING.md)
-- **Typical time:** As time allows, ideally before JOURNAL
-- **Duration:** 30-60 min per piece (varies)
+- **Frequency:** Daily
+- **Time:** 13:00 local (America/Chicago)
+- **Duration:** 15–45 min (one piece, or quick scan of the daily list)
 
 ## Method
 
