@@ -7,7 +7,7 @@
 - Preferred name: Chef
 - Telegram: @kerryourself (ID: 8250103285)
 - Currently developing: iOS app (Souvenir) and web app
-- Souvenir repo: `~/Code/SVNR`
+- Souvenir repo: `~/House/desk/SVNR`
 - Preferred build command: `runios`
 
 ## How to Converse

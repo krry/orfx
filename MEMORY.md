@@ -22,6 +22,7 @@ Each meme lives in its own file in `memory/`. Filenames are descriptive; filesys
 ## Systems & Architecture
 
 - **memory/autonomy-protocol-spectrum-scripts-to-main.md** — When to use scripts, tools, skills, subagents, main
+- **memory/credential-storage-pattern-keychain-creds-index.md** — Keychain (secrets) + CREDS.md (index) + runtime retrieval pattern; learned when lost Moltbook API key
 
 ## How to Use This Memory
 

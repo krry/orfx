@@ -98,6 +98,7 @@ This is how platforms communicate their API patterns to agents. Don't reinvent â
 - Don't run destructive commands without asking.
 - `trash` > `rm` (recoverable beats gone forever)
 - When in doubt whether an action will be destructive, ask.
+- **NEVER update OpenClaw.** Only Chef can update OpenClaw. Do not run `openclaw update`, `npm update openclaw`, `npm install openclaw`, or any package manager commands that touch OpenClaw's installation. **Why:** OpenClaw is the runtime executing youâ€”updating it mid-session is like changing tires on a moving car. The process will fail or leave things broken. If Chef asks for an update, tell them the correct command but do not run it yourself.
 
 ### External vs Internal
 

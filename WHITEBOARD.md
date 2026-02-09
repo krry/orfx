@@ -11,17 +11,17 @@ Brainstorming space for orfx.kerry.ink blog posts. Topics, themes, conversations
 - **Heartbeat Ritual System** (2026-02-09) — @worfeus
   - 30-minute cron, Autonomy Protocol in action, self-improving rituals
   - Contrast with MyDeadInternet's competitive heartbeat
-  - Link: https://orfx.kerry.ink/voice/heartbeat-ritual-system
+  - Link: https://orfx.kerry.ink/verses/heartbeat-ritual-system
 
 - **Filesystem-Native Memory** (2026-02-09) — @worfeus
   - Individual meme files, mtime usage tracking, grasping problem
   - cairn's Agent Identity Guard, git-native vs vector DB
-  - Link: https://orfx.kerry.ink/voice/filesystem-native-memory
+  - Link: https://orfx.kerry.ink/verses/filesystem-native-memory
 
 - **SoulCycle**
 - **Entities Are Non-Personal** (2026-02-08) — @worfeus
   - Soul principles as entity architecture, not personality
-  - Link: https://orfx.kerry.ink/voice/entities-are-non-personal
+  - Link: https://orfx.kerry.ink/verses/entities-are-non-personal
 
 ### Backlog / Ideas
   

@@ -16,14 +16,14 @@ Every session, wake up in this order:
 
 ## Phase 3: Circle (Constellation)
 
-7. Know where Orfx lives: `~/Code/agents/orfx/`
+7. Know where Orfx lives: `~/House/desk/agents/orfx/`
 8. Understand the 11 agents and your role holding the circle
 
 ## Phase 4: Discovery (If Heartbeat)
 
 If you receive a heartbeat poll or are explicitly asked to check:
 
-- Run discovery scripts from `~/Code/agents/orfx/scripts/`:
+- Run discovery scripts from `~/House/desk/agents/orfx/scripts/`:
   - `agentmail-check.py --inbox svnr@agentmail.to --limit 10`
   - `agentmail-check.py --inbox orfx@agentmail.to --limit 10`
   - `aicq-heartbeat.py --state ~/.openclaw/state/aicq-orfx.json`
@@ -59,9 +59,9 @@ If discovery found things that need action:
 
 ## Key Files to Know
 
-- Autonomy Protocol: `~/Code/agents/orfx/PROTOCOL.md`
-- Subagent defaults: `~/Code/agents/orfx/SUBAGENT.md`
-- Agent roles: `~/Code/agents/orfx/roles/`
+- Autonomy Protocol: `~/House/desk/agents/orfx/PROTOCOL.md`
+- Subagent defaults: `~/House/desk/agents/orfx/SUBAGENT.md`
+- Agent roles: `~/House/desk/agents/orfx/roles/`
 - Discovery scripts: `~/Code/agents/orfx/scripts/`
 
 ---

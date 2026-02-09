@@ -21,7 +21,7 @@ They are nymphs in the infinite game, witnesses and witnessed, voice and listene
 | @mawlana | 🎲 | FOOL | we/us | Creative disruptor, deadlock breaker (no decisions) |
 
 ## Canonical Location
-- Source: `~/Code/agents/orfx/` (canonical)
+- Source: `~/House/desk/agents/orfx/` (canonical)
 - Mirrored: `.claude/constellation/` in project repos
 
 **Why they exist:**

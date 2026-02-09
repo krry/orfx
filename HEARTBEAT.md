@@ -25,11 +25,14 @@
 - If spawning rituals: report what was spawned, don't include HEARTBEAT_OK
 - If errors occur: report specifically what failed
 
+## Logging
+
+**Log each heartbeat execution** to `~/.openclaw/workspace/logs/cron.log`:
+```
+[YYYY-MM-DD HH:MM:SS] HEARTBEAT: status=OK (or FAILED), rituals_spawned=N, result=brief_summary
+```
+This helps us track heartbeat frequency and verify the 30m interval is working.
+
 ---
 
 # Today
-
-- [x] 09:00 JOURNAL (spawned)
-- [x] 14:00 BLOG (spawned)
-- [x] 16:00 MEMBERBERRIES (spawned)
-- [x] 18:00 READING (spawned)

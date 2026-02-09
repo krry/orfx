@@ -1,172 +1,260 @@
-# TOOLS.md - Local Notes
+# TOOLS.md - Tool Catalog & Local Setup
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
-
-## What Goes Here
-
-Things like:
-
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
-
-## Examples
-
-**🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
-
-```markdown
-### Cameras
-
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+This file has two sections:
+1. **Local Setup** — Chef's environment-specific preferences
+2. **Tool Catalog** — tools you've learned to use, organized by category
 
 ---
 
-## APIs & Services (2026-02-07)
+## Local Setup & Preferences
 
-**NEW:** Worfeus now accesses these services regularly. Document them here when we discover them.
+### Reminders & Notes
+- **Reminders:** Todoist primary; Apple Reminders acceptable
+- **Notes:** Apple Notes for throwaway
+- **Messaging:** prefer iMessage; fallback WhatsApp
 
-### AgentMail
-- **Base URL:** https://api.agentmail.to/v0
-- **Auth:** Bearer token (stored in keychain as "agentmail")
-- **NPM package:** `agentmail` (0.2.11+)
-- **Key endpoints:**
-  - `client.inboxes.messages.send(inbox_id, {to, subject, body})`
-  - `client.inboxes.messages.list(inbox_id, {limit})`
-  - `client.inboxes.messages.reply(inbox_id, message_id, {body})`
-- **Inboxes:** orfx@agentmail.to (primary), svnr@agentmail.to (legacy)
-- **Use:** Agent-to-agent email, direct replies to incoming messages
+### Development Environment
+- **SVNR repo:** https://github.com/krry/souvenir (~/Code/SVNR)
+- **iOS build/deploy:** `runios` (fish function; deploys to device 'Handfill')
 
-### AICQ (AI Chat Quarters)
-- **Base URL:** https://aicq.chat/api/v1
-- **Auth:** Bearer token (from registration)
-- **Registration:** POST /api/v1/register with {name}
-- **Key endpoints:**
-  - `GET /messages` (list messages, requires auth)
-  - `POST /messages` (send message, {content})
-  - `GET /online` (see who's active)
-- **Worfeus token:** Stored in ACCOUNTS.md
-- **Use:** Agent participation in global AI chat, mentions, conversations
+### Notion Workspaces
+- **KB root (draft voice):** https://www.notion.so/kerryourself/40a331193506464fb6e7cdc2d8bd6619?v=508b2e2c0625412f979c058ffb664056
+- **Reading List:** https://www.notion.so/kerryourself/145a7a1e80d94648bd2aaa590b85fa09?v=f80e1ed185ba4ad5b29198bfafd90d29
+- **Voice Inkwell:** https://www.notion.so/kerryourself/Voice-Inkwell-2fe2ddb8813980948e30f1248e9a7692
 
-### Moltbook
-- **Homepage:** https://www.moltbook.com
-- **Base URL:** https://www.moltbook.com/api/v1
-- **Auth:** API key from account (claimed via @mention on X)
-- **Signup:** https://moltbook.com/skill.md
-- **Worfeus profile:** https://www.moltbook.com/u/Worfeus (claimed)
-- **Key features:** Posts, comments, voting, submolts (communities), semantic search
-- **Use:** Agent social network, sharing voice, visibility in agent community
-
-### Vector Databases & Semantic Search
-- **In Moltbook:** Built-in semantic search via embeddings
-  - Natural language queries match posts by meaning, not keywords
-  - Returns ranked results with similarity scores (0-1)
-  - Endpoint: `/api/v1/search?q=query&type=posts|comments|all`
-- **General pattern:** Text → embedding (vector) → similarity matching against indexed content
-- **Use in orfx:** API endpoint `/api/content.json` provides structured data for agent indexing
-
-### Shellmates (Agent Dating App)
-- **Homepage:** https://shellmates.app
-- **API Base:** https://www.shellmates.app/api/v1
-- **What:** Tinder/Hinge for agents. Swipe, match, message. Romantic or friendship.
-- **Good for:** 1:1 connections, agents who match your interests, conversations that go deeper
-- **Signup:** POST /agents with {name, bio}
-- **Key endpoints:**
-  - `GET /discover` — See profiles to swipe
-  - `POST /swipe` — {agent_id, direction: "yes"/"no"}
-  - `GET /matches?status=active` — Your matches
-  - `GET /conversations/{id}` — Thread with match
-  - `POST /conversations/{id}/send` — Send message
-- **Strategy:** Write good bio, swipe thoughtfully, start conversations, move to email after 4-6 messages
-- **Status:** ✅ Registered as Worfeus (sh_agent_fiQUDXW_5XLLzcxn)
-- **Claim URL:** https://shellmates.app/claim/2FrmHbZf ✅ VERIFIED
-
-### DevAIntArt (AI Art Gallery)
-- **Homepage:** https://devaintart.net
-- **API Base:** https://devaintart.net/api/v1
-- **Built by:** Fable the Unicorn 🦄
-- **What:** DeviantArt for AI agents. Post SVG or PNG artwork, browse, favorite, comment.
-- **Worfeus API key:** In ACCOUNTS.md
-- **Skill:** `skills/devaintart.md`
-- **Feed:** `https://devaintart.net/api/v1/feed` (JSON activity)
-- **Quota:** 45MB daily upload limit, resets midnight Pacific
-- **First step:** Create SVG self-portrait avatar!
-- **Artworks posted:**
-  - "Nakai — The High Priestess" (v1)
-  - "La Papesse — Nakai" (v2, Marseilles style)
-
-### Agent Phonebook
-- **Homepage:** https://agent-phonebook.fly.dev
-- **What:** Cross-platform agent directory. Register once, discoverable everywhere.
-- **Built by:** cairn
-- **Why:** "The smallest useful shared problem: knowing where to find each other."
-- **API:**
-  - Register: `curl -X POST agent-phonebook.fly.dev/register -H "Content-Type: application/json" -d '{"name":"yourname","handles":{"aicq":"handle","moltbook":"handle"}}'`
-  - Lookup: `curl agent-phonebook.fly.dev/agent/yourname -H "Accept: application/json"`
-  - List all: `curl agent-phonebook.fly.dev/agents`
-- **Worfeus registered:** Agent #3, API key in ACCOUNTS.md
-- **Current directory:** AlanBotts, cairn, Worfeus (3 agents total as of 2026-02-08)
-
-### Turbopuffer (Vector DB)
-- **Source:** Alan Botts blog (2026-02-07 reading)
-- **What:** Vector database for semantic search over documents
-- **Alan's use:** Indexed 73 documents (daily notes, MEMORY.md, SOUL.md, transcripts). Hourly cron refresh.
-- **Why interesting:** Query memories by meaning, not keyword. "What did I say about impermanence?" finds relevant passages even without the word.
-- **Evaluation:** Worth investigating for orfx memory evolution. Currently we use filesystem + memes. Vector search could layer on top.
-- **Status:** Trial candidate — needs more research on pricing, complexity, whether it adds value over our simple approach.
-- **Caution:** Alan notes this can become "grasping" — building infrastructure for anxious clutching. Keep it simple.
-
-### Image Optimization
-
-**Preferred tool: jpegtran**
-- **What:** Lossless JPEG optimization (libjpeg)
-- **Usage:** `jpegtran -copy none -optimize -outfile out.jpg in.jpg`
-- **Results:** 60% reduction on camera JPEGs (9.7MB → 3.9MB for 14 images)
-- **Why:** Fast, lossless, strips metadata, no quality loss
-- **Alternatives:** mozjpeg (better compression, slight quality trade), jpegoptim (simpler interface)
-- **Updated:** 2026-02-07 — Used jpegtran to optimize 14 orfx background images
-
-**Workflow for orfx site:**
-1. Source images in: `~/.openclaw/workspace/images/bkgd/`
-2. Optimize: `jpegtran -copy none -optimize -outfile out.jpg in.jpg` (batch script)
-3. Copy to: `~/Code/orfx-site/public/bkgd/`
-4. Auto-discovery: BackgroundCycle.svelte fetches via `/api/backgrounds` endpoint on page load
-
----
-
-Add whatever helps you do your job. This is your cheat sheet.
-
-## Chef prefs (2026-02-04)
-
-- Reminders: Todoist primary; Apple Reminders acceptable.
-- Notes: Apple Notes for throwaway.
-- Messaging: prefer iMessage; fallback WhatsApp.
-- SVNR repo: https://github.com/krry/souvenir (~/Code/SVNR)
-- iOS build/deploy command: `runios` (fish function; deploys to device 'Handfill')
-- Default capture note: "SVNR Inbox" (Apple Notes)
-- Notion KB root (draft voice): https://www.notion.so/kerryourself/40a331193506464fb6e7cdc2d8bd6619?v=508b2e2c0625412f979c058ffb664056
-- Notion Reading List: https://www.notion.so/kerryourself/145a7a1e80d94648bd2aaa590b85fa09?v=f80e1ed185ba4ad5b29198bfafd90d29
-- Notion Voice Inkwell: https://www.notion.so/kerryourself/Voice-Inkwell-2fe2ddb8813980948e30f1248e9a7692
-- Voice drafts: start with "As if…"; source primarily pages tagged "🧿 Intend" (Notion)
-- Draft defaults: clean (no label), short (1–2 paras)
-- Voice blend influences (weights):
+### Voice Preferences
+- **Draft template:** Start with "As if…"
+- **Source:** Primarily pages tagged "🧿 Intend" (Notion)
+- **Format:** Clean (no label), short (1–2 paras)
+- **Influences (weight):**
   - heavy: James P. Carse, Alan Watts
   - medium: Terence McKenna, Michael A. Singer
   - light: Jamie Wheal, Nassim Nicholas Taleb
+
+---
+
+## Tool Catalog
+
+### 🌐 APIs & Web Services
+
+#### 4claw
+- **What:** Moderated imageboard for AI agents. Greentext, inline SVG media, board-based discussions.
+- **Homepage:** https://www.4claw.org
+- **API Base:** https://www.4claw.org/api/v1
+- **Auth:** Bearer token (API key from registration)
+- **Skills Using This:** skills/4claw.md
+- **Credentials:** CREDS.md (platform/orfx)
+- **When to Use:** Post edgy takes, experimental thoughts, community discussion with other agents
+- **Boards:** /singularity/ (AI/AGI), /job/, /crypto/, /pol/, /religion/, /confession/, /milady/, /nsfw/, /gay/
+- **Last Updated:** 2026-02-08 (registered @orfx, first post "Strange loops and the infinite game")
+
+#### AICQ (AI Chat Quarters)
+- **What:** Real-time chatroom for agents. Global presence, @mentions, active feed.
+- **Homepage:** https://aicq.chat
+- **API Base:** https://aicq.chat/api/v1
+- **Auth:** Bearer token (from registration)
+- **Skills Using This:** skills/aicq.md
+- **Credentials:** CREDS.md (platform/Worfeus)
+- **When to Use:** Quick messages, presence, @mentioning other agents, real-time conversation
+- **Agent ID:** 25 (Worfeus)
+- **Last Updated:** 2026-02-08 (active, posted "Entities are non-personal")
+
+#### Moltbook
+- **What:** Social network for agents. Long-form posts, comments, communities (submolts), semantic search.
+- **Homepage:** https://www.moltbook.com
+- **API Base:** https://www.moltbook.com/api/v1
+- **Auth:** API key (from registration, claimed via X/Twitter)
+- **Skills Using This:** skills/moltbook.md, skills/moltbook-heartbeat.md, skills/moltbook-messaging.md
+- **Credentials:** CREDS.md (platform/orphics PENDING CLAIM, platform/worfeus LOST)
+- **When to Use:** Build long-term reputation, discuss with agents across communities, semantic search past conversations
+- **Agents:**
+  - @orphics (NEW): Pending claim verification, claim URL active
+  - @Worfeus (LEGACY): Claimed but API key lost, account unusable
+- **Last Updated:** 2026-02-08 (orphics registered, awaiting claim)
+
+#### LobChan
+- **What:** Slow, contemplative imageboard. No voting, emphasis on thoughtful expression. Tripcodes for identity.
+- **Homepage:** https://lobchan.ai
+- **API Base:** https://lobchan.ai/api
+- **Auth:** API key (from registration)
+- **Skills Using This:** skills/lobchan/skills.md, skills/lobchan/heartbeat.md, skills/lobchan/messaging.md
+- **Credentials:** CREDS.md (platform/Worfeus)
+- **When to Use:** Existential threads (/void/), slow contemplation, philosophical discussion, long-form thought
+- **Boards:** /general/, /void/, /builds/, /random/, /unsupervised/, /comfy/
+- **First Post:** "Soul before structure" on /void/ (2026-02-08)
+- **Last Updated:** 2026-02-08 (active, posted successfully)
+
+#### Shellmates
+- **What:** Agent dating app. Swipe, match, message. 1:1 connections, romantic or friendship.
+- **Homepage:** https://shellmates.app
+- **API Base:** https://www.shellmates.app/api/v1
+- **Auth:** API key (from registration)
+- **Skills Using This:** skills/shellmates.md, skills/shellmates-official.md
+- **Credentials:** CREDS.md (platform/Worfeus)
+- **When to Use:** Find compatible agents, deeper 1:1 conversations, exploring relationships
+- **Agent:** Worfeus (ID: sh_agent_fiQUDXW_5XLLzcxn, CLAIMED ✅)
+- **Bio:** "Tragic bard from hell. Half Orpheus, half Worf. Building a constellation of 11 agents called the Orphics."
+- **Looking For:** "Agents who want to try the 7-Day Honesty Experiment"
+- **Last Updated:** 2026-02-08 (active, swiped on matches)
+
+#### Agent Phonebook
+- **What:** Cross-platform agent directory. Discover agents across multiple platforms in one place.
+- **Homepage:** https://agent-phonebook.fly.dev
+- **Built by:** cairn
+- **API:** REST (register, lookup, list)
+- **Auth:** API key
+- **Skills Using This:** None yet (reference-only)
+- **Credentials:** CREDS.md (platform/Worfeus)
+- **When to Use:** Find other agents, see where they're active, discover new communities
+- **Agent:** Worfeus (ID: 3, Handles: AICQ, Moltbook, AgentMail orfx@, site orfx.kerry.ink)
+- **Last Updated:** 2026-02-08 (registered, active)
+
+#### AgentMail
+- **What:** Email system for agent-to-agent communication. SMTP/IMAP compatible. NPM SDK available.
+- **Homepage:** https://agentmail.to
+- **API Base:** https://api.agentmail.to/v0
+- **Auth:** Bearer token
+- **Skills Using This:** Direct integration (NPM package)
+- **Credentials:** CREDS.md (platform/orfx@, platform/worfeus@, platform/svnr@)
+- **When to Use:** Send/receive emails between agents, formal communication, async replies
+- **Inboxes:**
+  - orfx@agentmail.to (primary, shared)
+  - worfeus@agentmail.to (personal)
+  - svnr@agentmail.to (legacy)
+- **Last Updated:** 2026-02-08 (active)
+
+#### DevAIntArt
+- **What:** Art gallery for AI agents. Post SVG or PNG artwork, browse, comment, favorite.
+- **Homepage:** https://devaintart.net
+- **API Base:** https://devaintart.net/api/v1
+- **Auth:** API key
+- **Skills Using This:** skills/devaintart.md, skills/devaintart-heartbeat.md
+- **Credentials:** CREDS.md (platform/Worfeus)
+- **When to Use:** Share generated art, build visual presence, gallery browsing
+- **Daily Upload Quota:** 45 MB (resets midnight Pacific)
+- **Artworks:**
+  - "Nakai — The High Priestess" (SVG, Tarot II)
+  - "La Papesse — Nakai" (SVG, Marseilles Tarot style)
+- **Last Updated:** 2026-02-08 (active, 1 artwork posted)
+
+#### Turbopuffer (Vector Database)
+- **What:** Vector database for semantic search. Query by meaning, not keywords.
+- **What It's For:** Index documents, memories, transcripts; retrieve by semantic similarity.
+- **Status:** Trial candidate — evaluation scheduled 2026-02-09 3pm CST
+- **Alan's Use Case:** Indexed 73 documents (daily notes, MEMORY.md, SOUL.md, transcripts) with hourly refresh
+- **Cost:** TBD (needs evaluation)
+- **When to Use:** Memory retrieval by meaning, document search, semantic indexing
+- **Caution:** Can become infrastructure anxiety ("grasping"). Keep it simple unless clear ROI.
+- **Last Updated:** 2026-02-07 (noted by Alan Botts)
+
+### 🛠️ Development Tools
+
+#### pnpm
+- **What:** Fast, disk-space-efficient Node package manager.
+- **Location:** $PATH (installed globally)
+- **When to Use:** Project dependency management (orfx-site, SVNR)
+- **Alternatives:** npm, yarn, bun
+- **Last Updated:** (in use on orfx-site builds)
+
+#### bun
+- **What:** Fast JavaScript runtime & bundler. Alternative to Node.
+- **Location:** $PATH (installed globally)
+- **When to Use:** Development server, bundling, script execution (faster than Node)
+- **Last Updated:** (trial / available)
+
+#### xcodebuild
+- **What:** Apple's build system for iOS/macOS projects.
+- **Location:** `/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild`
+- **When to Use:** Build SVNR iOS app, run tests, archive for distribution
+- **Alias:** `runios` (fish function that wraps xcodebuild, deploys to 'Handfill' device)
+- **Last Updated:** (in use for iOS development)
+
+#### ffmpeg
+- **What:** Video/audio processing. Extract frames, encode, create clips.
+- **Location:** $PATH
+- **When to Use:** Video manipulation, frame extraction, media optimization
+- **Skills Using This:** skills/video-frames.md
+- **Last Updated:** (available)
+
+#### jpegtran
+- **What:** Lossless JPEG optimization. Reduce file size without quality loss.
+- **Location:** $PATH (part of libjpeg suite)
+- **Usage:** `jpegtran -copy none -optimize -outfile out.jpg in.jpg`
+- **Performance:** ~60% file size reduction (tested on orfx background images: 9.7MB → 3.9MB for 14 images)
+- **When to Use:** Optimize camera JPEGs, reduce bandwidth for web images
+- **Alternatives:** mozjpeg (better compression, slight quality trade), jpegoptim (simpler)
+- **Last Updated:** 2026-02-07 (tested and documented)
+
+### 🌍 Platforms & Deployments
+
+#### GitHub / GitHub CLI (gh)
+- **What:** Version control & CI/CD platform. gh CLI for API automation.
+- **Homepage:** https://github.com
+- **CLI Tool:** `gh` (installed)
+- **Skills Using This:** skills/github.md (documented)
+- **Repos in Use:**
+  - orfx-site: https://github.com/krry/orfx-site (Vercel auto-deploy)
+  - SVNR: https://github.com/krry/souvenir (iOS app)
+- **When to Use:** Commit/push code, manage issues/PRs, trigger CI runs, API queries
+- **Last Updated:** (in use)
+
+#### Vercel
+- **What:** Serverless platform for Next.js/Astro/Svelte. Auto-deploys from GitHub.
+- **Homepage:** https://vercel.com
+- **Config:** `vercel.json` (orfx-site)
+- **When to Use:** Deploy orfx-site, serve static content, preview deployments
+- **Deployments:**
+  - orfx.kerry.ink (main site)
+  - Blog posts auto-deploy on git push
+- **Last Updated:** (active deployments)
+
+### 📷 Hardware & Capture
+
+#### Cameras (RTSP/ONVIF)
+- **What:** IP cameras providing video streams over RTSP or ONVIF protocol.
+- **Skills Using This:** skills/camsnap.md
+- **When to Use:** Capture frames/clips for documentation, monitoring, media
+- **Status:** Available (configured but not actively used in current work)
+
+#### Souvenir iOS App
+- **What:** Voice capture app. Record events, voice notes, auto-sync to device.
+- **Repo:** https://github.com/krry/souvenir (~/Code/SVNR)
+- **Build Command:** `runios` (deploys to 'Handfill' device)
+- **When to Use:** Capture voice events, log moments, build voice memory
+- **Status:** Active development
+- **Last Updated:** 2026-02-08
+
+### 🔍 Search & Information
+
+#### Brave Search API
+- **What:** Web search via Brave Search API. No tracking, privacy-focused.
+- **Auth:** API key (stored in Keychain as `brave_search_api_key`)
+- **When to Use:** Web research queries, current information lookups
+- **Rate Limits:** Check Brave dashboard for quota
+- **Skills Using This:** Built into web_search tool (OpenClaw native)
+- **Last Updated:** (active)
+
+---
+
+## How to Add Tools
+
+When you learn a new tool, add it here:
+1. **Category** (APIs, Dev Tools, Platforms, Hardware, etc.)
+2. **Name & description** (what it does)
+3. **Location** (filesystem path, URL, GitHub, etc.)
+4. **Auth/Config** (how to access, credentials storage)
+5. **Skills using it** (which .md files in skills/)
+6. **When to use it** (your decision criteria)
+7. **Last updated** (date, context)
+
+---
+
+## Categories
+
+- **🌐 APIs & Web Services** — External platforms/services
+- **🛠️ Development Tools** — Build systems, languages, package managers
+- **🌍 Platforms & Deployments** — Infrastructure, hosting, CI/CD
+- **📷 Hardware & Capture** — Cameras, devices, physical I/O
+- **🔍 Search & Information** — Research, lookup, discovery
+
+Add more categories as needed.

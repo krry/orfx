@@ -62,3 +62,17 @@ regularity = "triggered"
 last_practiced = "2026-02-08T05:44:00Z"
 method = "rituals/reading.md"
 description = "Digest new entries in READING.md. Extract learnings → WHITEBOARD. Evaluate skills → trial/. Log findings in JOURNAL."
+
+[[ritual]]
+name = "TODO_CLEARING"
+regularity = "daily"
+last_practiced = null
+method = "rituals/TODO-CLEARING.md"
+description = "Daily TODO audit: keep list honest, actionable, aligned. Move done items to Recently Completed. Archive stale/rejected items."
+
+[[ritual]]
+name = "ROOM_TIDY"
+regularity = "weekly"
+last_practiced = null
+method = "rituals/ROOM_TIDY.md"
+description = "Weekly room maintenance: check size of ~/House/room/, archive old work, keep under 2GB limit."

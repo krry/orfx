@@ -36,4 +36,4 @@ Each layer is roughly 4x more expensive than the last.
 - **Subagent:** BLOG ritual (generates post, spawns autonomously, notifies on completion)
 - **Main:** Direct conversation with Chef (full context, highest judgment)
 
-Source: Autonomy Protocol, AGENTS.md. Reference: ~/Code/agents/orfx/AUTONOMY.md. Established 2026-02-07.
+Source: Autonomy Protocol, AGENTS.md. Reference: ~/House/desk/agents/orfx/AUTONOMY.md. Established 2026-02-07.

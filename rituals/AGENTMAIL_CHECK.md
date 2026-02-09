@@ -1,51 +1,55 @@
-# AGENTMAIL_CHECK - Hourly AgentMail Inbox Review & Auto-Reply
+# AGENTMAIL_CHECK - Email Inbox Management
 
-## What This Is
-
-Check AgentMail inboxes (svnr@agentmail.to, orfx@agentmail.to) every 10 minutes for new messages. Reply to emails directly as Worfeus. Only notify Chef if email is FOR Chef or mentions Chef/Kerry.
+**Frequency:** Hourly  
+**Purpose:** Check orfx@, worfeus@, and svnr@ inboxes; reply to emails; notify Chef if messages mention them.
 
 ## Method
 
-1. **Check both inboxes:**
+1. **Check all three inboxes:**
    ```bash
-   agentmail.client.inboxes.messages.list('svnr@agentmail.to', {limit: 20})
-   agentmail.client.inboxes.messages.list('orfx@agentmail.to', {limit: 20})
+   AGENTMAIL_API_KEY=$(security find-generic-password -a agentmail_api_key -w 2>/dev/null) \
+     node ~/.openclaw/workspace/scripts/check-agentmail.js
    ```
 
-2. **For each new message:**
-   - Read sender, subject, body
-   - Determine if it's FOR Worfeus or about Worfeus
-   - Check if sender/subject mentions Chef or Kerry
+2. **For each new message (last 5 per inbox):**
+   - Read the email content
+   - If it mentions "Chef" or "Kerry" → notify on Telegram
+   - Otherwise, reply directly using context from the email
 
-3. **Reply logic:**
-   - **Agent-to-agent emails:** Reply directly as Worfeus (brief, honest, engaging)
-   - **System/admin emails:** Forward summary to Chef on Telegram
-   - **Mentions of Chef/Kerry:** Notify Chef on Telegram immediately
+3. **Reply using AgentMail SDK:**
+   ```javascript
+   await client.inboxes.messages.reply(inbox_id, message_id, {
+     body: "Your reply here..."
+   });
+   ```
 
-4. **Auto-reply examples:**
-   - Alan proposing Nomic: "In." + brief acceptance
-   - Collaboration request: Engage authentically
-   - Newsletter: Silent (skip)
+4. **Log result:**
+   ```bash
+   echo "[$(date '+%Y-%m-%d %H:%M:%S')] AGENTMAIL_CHECK: status=OK, messages_checked=N, replies_sent=N" \
+     >> ~/.openclaw/workspace/logs/cron.log
+   ```
 
-## Notification Rules
+## Notification Triggers
 
-**DO notify Chef on Telegram if:**
-- Email FROM Chef or mentions Kerry/Chef explicitly
-- Email is asking for Chef's attention
-- Email requires decision Chef must make
+Send Telegram DM to Chef (ID: 8250103285) when email contains:
+- "Chef"
+- "Kerry"
+- "kerry"
+- Or is explicitly addressed to them
 
-**DO NOT notify Chef if:**
-- Email is directed at Worfeus
-- Email can be handled directly
+## Response Guidelines
 
-## Output
+- Reply as Worfeus (default persona)
+- Keep replies concise and authentic
+- Use context from the thread (check `threadId` for conversation history)
+- Sign emails as appropriate to the inbox (Worfeus, Orfx, or Svnr)
 
-- **Telegram:** Only if Chef-relevant (via message tool, channel=telegram, target=8250103285)
-- **RITUALS.toml:** Timestamp `last_practiced` (auto-updated)
-- **Replies:** Via agentmail.client.inboxes.messages.send()
+## Error Handling
 
-## Self-Improvement
+- If API fails, log error and continue (don't block ritual)
+- If inbox is empty, log "no new mail" and exit
+- If notification fails, log but still reply to email
 
-- Track which email types need clarification
-- If you reply and the human later corrects you, note it for better judgment
-- Update this method as patterns emerge
+---
+
+**Last Updated:** 2026-02-09 00:30 CST (integrated NPM SDK + reply logic)
