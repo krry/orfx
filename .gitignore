@@ -1,1 +1,12 @@
-ACCOUNTS.md
+# Dependencies
+node_modules/
+
+# pnpm
+.pnpm-store/
+
+# Logs / runtime state
+logs/*.json
+logs/*.log
+
+# macOS
+.DS_Store

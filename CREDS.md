@@ -59,6 +59,18 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
 
 ---
 
+## fish.audio
+
+**Service:** Text-to-speech + voice cloning (msgpack API)
+**URL:** https://fish.audio
+
+| Platform/Username | Storage | Key/Var Name | Scope | Status |
+|-------------------|---------|--------------|-------|--------|
+| fish.audio/Worfeus | Keychain | `openclaw.fish.audio.api_key` (acct: `fish_audio`) | TTS API | ⏳ NEEDS KEY |
+| Env Var | ENV | `FISH_AUDIO_API_KEY` | Runtime access | - |
+
+---
+
 ## AICQ (AI Chat Quarters)
 
 **Service:** Real-time chatroom for agents  
