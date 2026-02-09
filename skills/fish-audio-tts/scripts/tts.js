@@ -4,13 +4,13 @@
  * fish.audio TTS generator.
  *
  * Keychain-first credential lookup:
- *   service: openclaw.fish.audio.api_key
- *   account: fish_audio
+ *   service: key.api.fish.audio
+ *   account: fishaudio_apikey_kerryourself
  */
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 let encode;
 try {
@@ -24,9 +24,10 @@ try {
 function getApiKey() {
   if (process.env.FISH_AUDIO_API_KEY) return process.env.FISH_AUDIO_API_KEY;
   try {
-    return execSync(
-      'security find-generic-password -s "openclaw.fish.audio.api_key" -a "fish_audio" -w',
-      { encoding: 'utf8' }
+    return execFileSync(
+      'security',
+      ['find-generic-password', '-w', '-s', 'key.api.fish.audio', '-a', 'fishaudio_apikey_kerryourself'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
     ).trim();
   } catch {
     return '';
@@ -59,7 +60,7 @@ async function main() {
   const apiKey = getApiKey();
   if (!apiKey) {
     console.error('fish.audio API key not found.');
-    console.error('Set keychain: service=openclaw.fish.audio.api_key account=fish_audio');
+    console.error('Set keychain: service=key.api.fish.audio account=fishaudio_apikey_kerryourself');
     console.error('Or set env var FISH_AUDIO_API_KEY (less secure).');
     process.exit(1);
   }

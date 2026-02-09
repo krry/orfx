@@ -7,8 +7,8 @@ description: Generate text-to-speech audio via fish.audio (msgpack API) and save
 
 ## Credentials (Keychain-first)
 - Store API key in macOS Keychain:
-  - **service:** `openclaw.fish.audio.api_key`
-  - **account:** `fish_audio`
+  - **service:** `key.api.fish.audio`
+  - **account:** `fishaudio_apikey_kerryourself`
 - Scripts will fall back to `FISH_AUDIO_API_KEY` env var only if keychain lookup fails.
 
 ## Quick usage
