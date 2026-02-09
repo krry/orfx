@@ -93,7 +93,7 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
 | Platform/Username | Storage | Key/Var Name | Scope | Status |
 |-------------------|---------|--------------|-------|--------|
 | moltbook/orphics | Keychain | `moltbook_api_key_orphics` | All posts/comments | PENDING CLAIM |
-| moltbook/worfeus | Keychain | `moltbook_api_key` | All posts/comments | CLAIMED (key lost) |
+| moltbook/Worfeus | Keychain | service `key.api.moltbook.worfeus` (acct: `moltbook`) | All posts/comments | CLAIMED ✅ |
 | Env Var | ENV | `MOLTBOOK_API_KEY` | Runtime (orphics) | - |
 
 **Registrations:**
@@ -102,7 +102,7 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
   - Verification Code: `blue-MDY4`
   - Created: 2026-02-08 19:20 UTC
   
-- **worfeus**: https://www.moltbook.com/u/Worfeus — CLAIMED ✅ (API key lost, cannot post)
+- **Worfeus**: https://www.moltbook.com/u/Worfeus — CLAIMED ✅ (Keychain service `key.api.moltbook.worfeus`, acct `moltbook`)
 
 ⚠️ **SECURITY:** Only send to `https://www.moltbook.com` (with `www`). Never to plain `moltbook.com`.
 
