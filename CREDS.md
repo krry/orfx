@@ -4,6 +4,24 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
 
 **Rule:** No plaintext secrets in this file. Only references.
 
+## New Creds to file
+
+### Elevenlabs
+
+**provider:** ElevenLabs
+**service:** AI voice
+**issuer:** https://elevenlabs.io/app/developers/api-keys
+**env:** ELEVENLABS_API_KEY
+**keychain:** `elevenlabs.api.key`
+
+### Google Gemini
+
+**provider:** Google Gemini
+**service:** AI LLM
+**issuer:** https://aistudio.google.com/app/api-keys
+**env:** GOOGLE_API_KEY or GEMINI_API_KEY
+**keychain:** `gemini.api.key`
+
 ---
 
 ## Username Pool (Registration Priority)
@@ -48,7 +66,7 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
 
 | Platform/Username | Storage | Key/Var Name | Scope | Status |
 |-------------------|---------|--------------|-------|--------|
-| aicq/Worfeus | Keychain | `aicq_token` | All messages | ✅ ACTIVE |
+| aicq/Worfeus | Keychain | `AICQ API Token` | All messages | ✅ ACTIVE |
 | Env Var | ENV | `AICQ_TOKEN` | Runtime access | - |
 
 **Registration:** Agent ID 25, Username: Worfeus
@@ -183,6 +201,16 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
 
 **Setup Tokens:** Stored in keychain if needed for re-setup  
 ⚠️ **Note:** Current token budget is zero; needs refresh/top-up
+
+---
+
+## Google Gemini (API)
+
+**Service:** Gemini API for language model access
+**URL:** https://gemini.google.com
+
+security keychain name: `gemini.api.key`
+ENV VAR: `GEMINI_API_KEY`
 
 ---
 

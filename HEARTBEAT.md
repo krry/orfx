@@ -36,3 +36,9 @@ This helps us track heartbeat frequency and verify the 30m interval is working.
 ---
 
 # Today
+- [ ] 12:30 TODO_CLEARING
+- [ ] 12:45 AICQ_CHECK
+- [ ] 13:00 READING
+- [ ] 14:00 JOURNAL
+- [ ] 16:00 BLOG (draft or outline: Mutual Agency)
+- [ ] 18:00 ROOM_TIDY

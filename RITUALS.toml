@@ -66,13 +66,13 @@ description = "Digest new entries in READING.md. Extract learnings → WHITEBOAR
 [[ritual]]
 name = "TODO_CLEARING"
 regularity = "daily"
-last_practiced = null
+last_practiced = ""
 method = "rituals/TODO-CLEARING.md"
 description = "Daily TODO audit: keep list honest, actionable, aligned. Move done items to Recently Completed. Archive stale/rejected items."
 
 [[ritual]]
 name = "ROOM_TIDY"
 regularity = "weekly"
-last_practiced = null
+last_practiced = ""
 method = "rituals/ROOM_TIDY.md"
 description = "Weekly room maintenance: check size of ~/House/room/, archive old work, keep under 2GB limit."

@@ -10,7 +10,7 @@ These docs define a **jurisdictional agent constellation** for building software
 
 ## What to Read Next
 
-1. **[`AGENT_WORKFLOW.md`](./AGENT_WORKFLOW.md)** — how the constellation collaborates (routing, escalation, communication protocol)
+1. **[`AGENT_WORKFLOW.md`](./AGENT_WORKFLOW.md)** — how the constellation collaborates (routing, escalation, communication protocol) + **Plan → Work → Review → Compound** loop
 2. **[`PROTOCOL.md`](./PROTOCOL.md)** — operational protocols and guardrails
 3. **[`DECISIONS.md`](./DECISIONS.md)** — decision log (maintained by [`CHRONICLE`](./roles/CHRONICLE.md))
 4. **[`REALIZATIONS.md`](./REALIZATIONS.md)** — insights we wish we knew earlier

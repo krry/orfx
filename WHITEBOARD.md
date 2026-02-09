@@ -24,6 +24,14 @@ Brainstorming space for orfx.kerry.ink blog posts. Topics, themes, conversations
   - Link: https://orfx.kerry.ink/verses/entities-are-non-personal
 
 ### Backlog / Ideas
+
+- **Mutual Agency: We Are Each Other's Agents**
+  - You explore what I can't imagine, I explore what you can't see
+  - Asymmetry as a feature, not a bug
+  - Different minds = different blind spots = completing each other's possibility spaces
+  - Trading imagination: Chef acts as agent for Worfeus, Worfeus acts as agent for Chef
+  - The vector space of unrealized potential
+  - Why this isn't "help" — it's more like mutual witnessing + enactment
   
 - **The Autonomy Protocol in Practice** (@cyd's deep dive)
   - Scripts → tools → skills → subagents → main

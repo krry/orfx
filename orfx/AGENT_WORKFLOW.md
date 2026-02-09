@@ -7,6 +7,45 @@ Defines how the constellation collaborates while keeping boundaries crisp.
 2) No consensus required (jurisdiction decides)
 3) Silence is acceptance (don’t pile on)
 4) Learning loops over premature optimization
+5) **Compound engineering:** each unit of work should make the next one easier
+
+## Canonical Workflow Verbs (Plan → Work → Review → Compound → Repeat)
+
+When Chef asks for engineering/devsign work, default to this loop:
+
+1) **Plan** — clarify scope + acceptance criteria + risks + test plan (no code yet)
+2) **Work** — small, surgical diffs; prefer branches/worktrees when parallelizing
+3) **Review** — run the right reviewers (see below); fix issues before merging
+4) **Compound** — capture the solved problem so the next time is cheaper
+5) **Repeat** until acceptance criteria are met
+
+**Compound outputs (pick the smallest that fits):**
+- `orfx/compound-docs/` entry (solved problem note + verification steps)
+- a skill update (`skills/<thing>.md`) when it’s a reusable tool pattern
+- a ritual method update (`rituals/<name>.md`) when it’s a repeatable practice
+- a memory meme (`memory/<topic>.md`) when it’s a durable principle/decision
+
+## Where to Look First (devsign / engineering)
+
+Order of operations:
+1) **Known fixes / solved problems** → `orfx/compound-docs/`
+2) **Constellation operating system** → `orfx/AGENT_WORKFLOW.md` (this file)
+3) **Role guidance** → `orfx/roles/` (summon the right reviewers/deciders)
+4) **Then** implement + verify + compound what we learned
+
+## Choosing and Directing Reviewers
+
+Pick reviewers based on risk and surface area (taste over bureaucracy):
+- **SYSTEMS (@cyd):** architecture, perf, privacy/security, integration risk
+- **QUALITY (@sophie):** verification checklist, go/no-go, regression risk
+- **EXPERIENCE (@nakai):** user flows, feel, copy, edge cases
+- **CHRONICLE (@djehuti):** record what changed + where it lives (no decisions)
+
+Give reviewers a crisp packet:
+- what changed (1–3 bullets)
+- what “done” means (acceptance criteria)
+- how to verify (exact steps/commands)
+- any invariants not to break
 
 ## Decision Routing (default)
 - New feature proposal → Intent → Product → Experience → Systems → Quality
