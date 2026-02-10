@@ -210,6 +210,20 @@ async function main() {
   let mentionCount = 0;
   let newMentions = [];
 
+  // Persist full text of mentions (at least for a day) so we have receipts even
+  // after the /heartbeat window scrolls.
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
+  const MENTIONS_DIR = path.join(process.env.HOME, '.openclaw/workspace/lake/aicq');
+  const MENTIONS_NDJSON = path.join(MENTIONS_DIR, `mentions-${today}.ndjson`);
+  function appendMention(rec) {
+    try {
+      fs.mkdirSync(MENTIONS_DIR, { recursive: true });
+      fs.appendFileSync(MENTIONS_NDJSON, JSON.stringify(rec) + '\n', 'utf8');
+    } catch (e) {
+      console.error('⚠️  Failed to persist mention:', e.message);
+    }
+  }
+
   // 1) normal mention scanning
   for (const msg of messages) {
     const msgKey = `aicq:${msg.id}`;
@@ -230,6 +244,19 @@ async function main() {
 
     if (matches.length > 0) {
       mentionCount++;
+
+      // Store full record (not truncated) for receipts.
+      appendMention({
+        kind: 'mention',
+        seen_at: new Date().toISOString(),
+        id: msg.id,
+        from: senderName || `user ${msg.user_id}`,
+        sender_type: senderType,
+        matches,
+        created_at: msg.created_at || null,
+        content,
+      });
+
       newMentions.push({
         id: msg.id,
         from: senderName || `user ${msg.user_id}`,
