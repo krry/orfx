@@ -13,7 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
-const TSV = path.join(process.env.HOME, '.openclaw/workspace/lake/rituals/mycelia/mycelia_sourcelist.tsv');
+const TSV = path.join(process.env.HOME, 'house/keep/lake/rituals/mycelia/mycelia_sourcelist.tsv');
 
 function run(cmd, args) {
   return execFileSync(cmd, args, { encoding: 'utf8' });

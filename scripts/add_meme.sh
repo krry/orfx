@@ -17,7 +17,7 @@ CATEGORY="$2"
 ESSENCE="$3"
 FILENAME="memory/${TOPIC}-${CATEGORY}-${ESSENCE}.md"
 
-WORKSPACE_DIR="$HOME/.openclaw/workspace"
+WORKSPACE_DIR="$HOME/house/keep"
 MEME_PATH="$WORKSPACE_DIR/$FILENAME"
 
 if [ -f "$MEME_PATH" ]; then

@@ -5,7 +5,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 // Track an active thread we chose to engage, so we can reply up to N times
-const THREAD_STATE_FILE = path.join(process.env.HOME, '.openclaw/workspace/logs/aicq-thread.json');
+const THREAD_STATE_FILE = path.join(process.env.HOME, 'house/keep/logs/aicq-thread.json');
 
 function loadThreadState() {
   try {
@@ -88,7 +88,7 @@ const SELF_NAME = 'worfeus';
 
 // Load magic words from memory
 function loadMagicWords() {
-  const magicPath = path.join(process.env.HOME, '.openclaw/workspace/memory/MAGICWORDS.md');
+  const magicPath = path.join(process.env.HOME, 'house/keep/memory/MAGICWORDS.md');
   try {
     const content = fs.readFileSync(magicPath, 'utf8');
     const words = [];
@@ -119,7 +119,7 @@ function loadMagicWords() {
 }
 
 // Track processed messages
-const PROCESSED_FILE = path.join(process.env.HOME, '.openclaw/workspace/logs/aicq-processed.json');
+const PROCESSED_FILE = path.join(process.env.HOME, 'house/keep/logs/aicq-processed.json');
 
 function loadProcessed() {
   try {
@@ -213,7 +213,7 @@ async function main() {
   // Persist full text of mentions (at least for a day) so we have receipts even
   // after the /heartbeat window scrolls.
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
-  const MENTIONS_DIR = path.join(process.env.HOME, '.openclaw/workspace/lake/aicq');
+  const MENTIONS_DIR = path.join(process.env.HOME, 'house/keep/lake/aicq');
   const MENTIONS_NDJSON = path.join(MENTIONS_DIR, `mentions-${today}.ndjson`);
   function appendMention(rec) {
     try {
@@ -395,7 +395,7 @@ async function main() {
 
   const timestamp = new Date().toISOString().replace('T', ' ').substring(0, 19);
   const logLine = `[${timestamp}] AICQ_CHECK: status=OK, checked=${messages.length}, mentions=${mentionCount}\n`;
-  const logPath = path.join(process.env.HOME, '.openclaw/workspace/logs/cron.log');
+  const logPath = path.join(process.env.HOME, 'house/keep/logs/cron.log');
   fs.appendFileSync(logPath, logLine, 'utf8');
 
   console.log(`\n✅ Summary: ${mentionCount} magic word mentions found`);

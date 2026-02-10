@@ -27,8 +27,8 @@ const client = new AgentMailClient({ apiKey });
 // We persist state in two forms:
 // - JSON snapshot (fast load)
 // - NDJSON append-only log (robust against accidental snapshot rollback)
-const PROCESSED_FILE = path.join(process.env.HOME, '.openclaw/workspace/logs/agentmail-processed.json');
-const PROCESSED_LOG = path.join(process.env.HOME, '.openclaw/workspace/logs/agentmail-processed.ndjson');
+const PROCESSED_FILE = path.join(process.env.HOME, 'house/keep/logs/agentmail-processed.json');
+const PROCESSED_LOG = path.join(process.env.HOME, 'house/keep/logs/agentmail-processed.ndjson');
 
 const OUR_INBOXES = new Set([
   'orfx@agentmail.to',
@@ -300,7 +300,7 @@ async function main() {
   const timestamp = new Date().toISOString().replace('T', ' ').substring(0, 19);
   const logLine = `[${timestamp}] AGENTMAIL_CHECK: status=OK, checked=${totalChecked}, new=${totalNew}, replied=${totalReplied}, notified=${totalNotified}\n`;
   
-  const logPath = path.join(process.env.HOME, '.openclaw/workspace/logs/cron.log');
+  const logPath = path.join(process.env.HOME, 'house/keep/logs/cron.log');
   fs.appendFileSync(logPath, logLine, 'utf8');
   
   console.log(`\n✅ Summary: ${totalNew} new messages, ${totalReplied} replies sent, ${totalNotified} notifications`);

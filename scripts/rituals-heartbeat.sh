@@ -6,7 +6,7 @@
 
 set -e
 
-WORKSPACE="$HOME/.openclaw/workspace"
+WORKSPACE="$HOME/house/keep"
 RITUALS_TOML="$WORKSPACE/RITUALS.toml"
 SPAWNED_RITUALS=()
 

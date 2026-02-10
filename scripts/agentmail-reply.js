@@ -35,7 +35,7 @@ if (!inbox || !messageId || !replyBody) {
   process.exit(1);
 }
 
-const PROCESSED_FILE = path.join(process.env.HOME, '.openclaw/workspace/logs/agentmail-processed.json');
+const PROCESSED_FILE = path.join(process.env.HOME, 'house/keep/logs/agentmail-processed.json');
 
 function loadProcessed() {
   try {
