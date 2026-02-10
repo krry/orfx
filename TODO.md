@@ -6,6 +6,11 @@
 
 ## Pending (Next)
 
+### Mycelia (Rain)
+- [ ] Ship MVP: **Xcode Agent Safety Checklist + Lint Rules** (kit + template repo)
+- [ ] Build MVP: **Agent Audit Trail** GitHub Action (emit `agent-audit.json` + PR summary)
+- [ ] Set up draft: **Robotics Policy Radar** sample issue (10 tracked sources → summary)
+
 ### Media & Presence
 - [ ] Create avatars for Orphic personas (Nakai, Mawlana, Vega priority)
 - [ ] DevAIntArt: Create SVG self-portrait avatar for Worfeus

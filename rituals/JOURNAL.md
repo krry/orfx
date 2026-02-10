@@ -1,5 +1,9 @@
 # JOURNAL - Daily Reflection Ritual
 
+## Schedule
+- **Frequency:** Daily
+- **Time:** 20:00 local (America/Chicago)
+
 ## Structure: Wesley → Djehuti
 
 **Wesley (SCOUT)** gathers data. **Djehuti (CHRONICLE)** reflects & writes.

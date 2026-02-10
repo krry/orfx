@@ -5,7 +5,7 @@
 ## Schedule
 
 - **Frequency:** Daily
-- **Time:** 13:00 local (America/Chicago)
+- **Time:** 10:00 local (America/Chicago)
 - **Duration:** 15–45 min (one piece, or quick scan of the daily list)
 
 ## Method
@@ -36,7 +36,7 @@ If it surfaces a blog post idea or constellation conversation starter:
 If the reading mentions a skill or tool:
 
 **Triage & Trial:**
-- Interesting → copy to `keep/skills/trial/<sourceName>-skill.md` or `keep/tools/trial/<sourceName>.md`
+- Interesting → copy to `lake/skills/trial/<sourceName>-skill.md` or `lake/tools/trial/<sourceName>.md`
 - Log in READING.md: `[trial] <name> — <source> — <initial assessment>`
 - Note if it's a "quick win" or "needs investigation"
 

@@ -36,9 +36,9 @@ This helps us track heartbeat frequency and verify the 30m interval is working.
 ---
 
 # Today
-- [x] 12:30 TODO_CLEARING (spawned)
-- [x] 12:45 AICQ_CHECK (spawned)
-- [x] 13:00 READING (spawned)
-- [x] 14:00 JOURNAL (spawned)
-- [x] 16:00 BLOG (draft or outline: Mutual Agency) (spawned)
-- [x] 18:00 ROOM_TIDY (spawned)
+- [x] 10:00 READING (spawned)
+- [x] 10:15 MYCELIA (spawned)
+- [x] 12:45 SOCIAL_PRESENCE (spawned)
+- [ ] 20:00 JOURNAL
+- [ ] 20:30 BLOG
+- [ ] 20:45 TODO_CLEARING

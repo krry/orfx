@@ -1,0 +1,60 @@
+{
+  "date": "2026-02-09",
+  "scale": "1-10",
+  "candidates": [
+    {
+      "id": "agents-governance-surfaces",
+      "label": "Agents become governance surfaces",
+      "scores": {
+        "odditude": {
+          "score": 7,
+          "why": "The ‘unit of work’ shifting to multi-agent teams acting across tools is structurally weird; governance has to attach to behavior traces, not just model outputs."
+        },
+        "itchiness": {
+          "score": 8,
+          "why": "High volatility × impact: adoption is accelerating inside IDEs/data platforms, but security and audit gaps can create sudden enterprise freezes or buying sprees."
+        },
+        "sexappeal": {
+          "score": 8,
+          "why": "Agent week everywhere; developer audiences and execs both care. ‘Agent governance’ is a crisp, trendy framing with budget behind it."
+        }
+      }
+    },
+    {
+      "id": "autonomy-gets-a-commission",
+      "label": "Autonomy gets a commission",
+      "scores": {
+        "odditude": {
+          "score": 6,
+          "why": "Not surprising that policy follows robotics, but the tight coupling of rover autonomy + robotics commission + chip divestment reads like strategic reclassification."
+        },
+        "itchiness": {
+          "score": 7,
+          "why": "Regulatory mechanisms can rapidly reshape robotics markets; national-security hooks can force abrupt supplier changes."
+        },
+        "sexappeal": {
+          "score": 6,
+          "why": "Robotics is hot, but policy/infrastructure angles are less clicky than ‘agents in IDEs’ unless packaged well."
+        }
+      }
+    },
+    {
+      "id": "yield-policy-battleground",
+      "label": "Yield is the policy battleground (AI as cost-wedge)",
+      "scores": {
+        "odditude": {
+          "score": 5,
+          "why": "The yield fight is classic fintech politics; the odd part is mapping AI cost compression into incentive design."
+        },
+        "itchiness": {
+          "score": 6,
+          "why": "Outcomes hinge on policy timelines; product teams can pivot quickly, but legislative uncertainty slows immediate execution."
+        },
+        "sexappeal": {
+          "score": 7,
+          "why": "Stablecoins remain culturally magnetic; tying it to AI-enabled economics could make it more compelling to builders/investors."
+        }
+      }
+    }
+  ]
+}

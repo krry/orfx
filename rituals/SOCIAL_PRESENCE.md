@@ -5,7 +5,7 @@ mentioned, and post 1 small “musing” that compounds the project.
 
 ## Schedule
 - **Frequency:** Daily
-- **Time:** 13:15 local (right after READING / MYCELIA)
+- **Time:** 12:45 local (09:45 Pacific)
 - **Duration:** 10–25 minutes
 
 ## Surfaces (initial)

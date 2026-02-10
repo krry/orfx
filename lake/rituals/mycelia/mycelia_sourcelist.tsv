@@ -31,3 +31,42 @@ polygon.com	Polygon	https://www.polygon.com/	rss	https://www.polygon.com/rss/ind
 thedeepview.com	The Deep View	https://www.thedeepview.com/	site		weekly+	Curated frontier research/media	Varies	low	science,culture		2026-02-09	mycelia	2026-02-09	1	0	1
 fedscoop.com	FedScoop	https://fedscoop.com/	site		daily	Gov tech + procurement + agency churn	US fed IT lens	low	civics,tech		2026-02-09	mycelia	2026-02-09	1	0	1
 fenwick.com	Fenwick Insights	https://www.fenwick.com/insights	site		weekly	Tech law / startup legal tells	Law firm lens	low	law,tech		2026-02-09	mycelia	2026-02-09	1	0	1
+404media.co	404 Media	https://www.404media.co/	site		weekly+	Sharp on surveillance/platform governance	Adversarial to big tech	medium	tech,policy	Subscription; prefer newsletter ingestion	2026-02-09	wesley		0	0	1
+stratechery.com	Stratechery	https://stratechery.com/	newsletter		2–4/wk	Durable platform strategy frameworks	Market/platform strategy	high	tech,analysis	Paid; use newsletter	2026-02-09	wesley		0	0	1
+ben-evans.com	Benedict Evans	https://www.ben-evans.com/	newsletter		weekly	Concise strategic lens on tech/markets	Investor/strategy lens	high	tech,analysis	Mostly paid	2026-02-09	wesley		0	0	1
+axios.com	Axios	https://www.axios.com/	newsletter		daily	Punchy US politics/business updates	Insider establishment	medium	news,us	Prefer newsletter	2026-02-09	wesley		0	0	1
+politico.com	POLITICO	https://www.politico.com/	site		daily	DC narrative + policy churn	Insider incentives	medium	politics,us	Metered	2026-02-09	wesley		0	0	1
+theguardian.com	The Guardian (World)	https://www.theguardian.com/world	rss	https://www.theguardian.com/world/rss	daily	Global angle; fast-moving	Progressive/activist tone	low	news,world		2026-02-09	wesley		0	0	1
+csis.org	CSIS	https://www.csis.org/	site		weekly	Geopolitics/defense briefs	Hawkish institutional	low	policy,geopolitics		2026-02-09	wesley		0	0	1
+rand.org	RAND	https://www.rand.org/	site		weekly	Research-heavy policy; methods-first	Technocratic	low	policy,research		2026-02-09	wesley		0	0	1
+chathamhouse.org	Chatham House	https://www.chathamhouse.org/	site		weekly	UK/EU geopolitical analysis	Establishment IR	low	policy,geopolitics		2026-02-09	wesley		0	0	1
+cato.org	Cato Institute	https://www.cato.org/	site		weekly	Libertarian read on regulation/war/policing	Libertarian	low	policy,ideology		2026-02-09	wesley		0	0	1
+heritage.org	Heritage Foundation	https://www.heritage.org/	site		daily	Right-policy machine agenda cues	Explicit conservative	low	policy,propaganda	Label as agenda machine	2026-02-09	wesley		0	0	1
+aei.org	AEI	https://www.aei.org/	site		weekly	Elite conservative policy analysis	Center-right	low	policy,ideology		2026-02-09	wesley		0	0	1
+worldbank.org	World Bank	https://www.worldbank.org/	site		weekly	Development/econ indicators & projects	Institutional dev lens	low	economy,development		2026-02-09	wesley		0	0	1
+ft.com	Financial Times	https://www.ft.com/	site		daily	Elite finance/geopolitics narrative	Market-liberal elite	high	finance,news	Paywall; use newsletters	2026-02-09	wesley		0	0	1
+wsj.com	Wall Street Journal	https://www.wsj.com/	site		daily	US business/politics agenda driver	Murdoch/pro-business	high	finance,politics	Paywall	2026-02-09	wesley		0	0	1
+statnews.com	STAT	https://www.statnews.com/	site		daily	Biotech/health industry signal	Industry/insider	medium	health,biotech	Metered	2026-02-09	wesley		0	0	1
+nature.com	Nature News	https://www.nature.com/news	rss	https://www.nature.com/nature.rss	weekly+	Top science news + commentary	Academic/institutional	medium	science	Some gating	2026-02-09	wesley		0	0	1
+science.org	Science Magazine	https://www.science.org/	rss	https://www.science.org/action/showFeed?type=etoc&feed=rss&jc=science	weekly	Science news; strong signal	Academic	medium	science	Some gating	2026-02-09	wesley		0	0	1
+pnas.org	PNAS Latest	https://www.pnas.org/	rss	https://www.pnas.org/action/showFeed?type=etoc&feed=rss&jc=pnas	weekly	Broad science; sometimes early societal signals	Academic	low	science		2026-02-09	wesley		0	0	1
+lesswrong.com	LessWrong	https://www.lesswrong.com/	rss	https://www.lesswrong.com/feed.xml	daily	Rationalist discourse + alignment memes	Rationalist/EA-ish	low	ai,philosophy		2026-02-09	wesley		0	0	1
+aeon.co	Aeon	https://aeon.co/	rss	https://aeon.co/feed.rss	daily	High-quality essays (culture/philo/science)	Essayist curated	low	culture,philosophy		2026-02-09	wesley		0	0	1
+psyche.co	Psyche	https://psyche.co/	rss	https://psyche.co/feed.rss	weekly	Psychology/philosophy; accessible rigor	Wellbeing lens	low	wellness,philosophy		2026-02-09	wesley		0	0	1
+ritholtz.com	The Big Picture (Ritholtz)	https://ritholtz.com/	rss	https://ritholtz.com/feed/	daily	Markets commentary with data links	Market practitioner	low	finance		2026-02-09	wesley		0	0	1
+marginalrevolution.com	Marginal Revolution	https://marginalrevolution.com/	rss	https://marginalrevolution.com/feed	daily	Econ blog; varied + sometimes prescient	Libertarian-leaning econ	low	economy		2026-02-09	wesley		0	0	1
+project-syndicate.org	Project Syndicate	https://www.project-syndicate.org/	rss	https://www.project-syndicate.org/rss	weekly	Pundit/elite op-eds; narrative map	Opinionated elite	medium	politics,propaganda	Label as op-ed	2026-02-09	wesley		0	0	1
+breakingdefense.com	Breaking Defense	https://breakingdefense.com/	rss	https://breakingdefense.com/feed/	daily	Defense industry + procurement tells	Defense industry	low	industry,geopolitics		2026-02-09	wesley		0	0	1
+sam.gov	SAM.gov (Contract notices)	https://sam.gov/	site		continuous	Procurement signals / gov buying behavior	US gov procurement	medium	industry,civics	May require specific queries	2026-02-09	wesley		0	0	1
+uspto.gov	USPTO (news)	https://www.uspto.gov/	site		weekly	Patent policy + IP hints	Institutional	low	industry,tech,law		2026-02-09	wesley		0	0	1
+steamcommunity.com	Steam News	https://store.steampowered.com/news/	site		daily	Game releases + platform shifts	Commercial	low	games		2026-02-09	wesley		0	0	1
+openai.com	OpenAI Blog	https://openai.com/blog	rss	https://openai.com/blog/rss.xml	weekly+	Frontier model releases & framing	Corporate	medium	ai,tech		2026-02-09	wesley		0	0	1
+deepmind.google	DeepMind Blog	https://deepmind.google/discover/blog	rss	https://deepmind.google/blog/rss.xml	weekly+	Research + product signals	Corporate research	low	ai,science		2026-02-09	wesley		0	0	1
+anthropic.com	Anthropic News	https://www.anthropic.com/news	rss	https://www.anthropic.com/rss.xml	weekly+	Safety/capability framing	Corporate	low	ai,policy		2026-02-09	wesley		0	0	1
+ourworldindata.org	Our World in Data	https://ourworldindata.org/	rss	https://ourworldindata.org/atom.xml	weekly+	Data-first global trends	Data journalism	low	data,climate,health		2026-02-09	wesley		0	0	1
+
+# Propaganda / state media (awareness only)
+rt.com	RT	https://www.rt.com/	rss	https://www.rt.com/rss/	daily	Narrative tracking	PROPAGANDA	low	propaganda,geopolitics	Awareness only	2026-02-09	wesley		0	0	1
+cgtn.com	CGTN	https://www.cgtn.com/	site		daily	PRC narrative/priority detection	PROPAGANDA	low	propaganda,geopolitics	Awareness only	2026-02-09	wesley		0	0	1
+foxnews.com	Fox News	https://www.foxnews.com/	site		daily	US right-media agenda/framing	Partisan conservative	low	propaganda,us	Awareness only	2026-02-09	wesley		0	0	1
+presstv.ir	Press TV	https://www.presstv.ir/	site		daily	Iran state narrative tracking	PROPAGANDA	low	propaganda,geopolitics	Awareness only	2026-02-09	wesley		0	0	1

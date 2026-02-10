@@ -8,5 +8,12 @@ node_modules/
 logs/*.json
 logs/*.log
 
+# Local secrets (never commit)
+ACCOUNTS.md
+
 # macOS
 .DS_Store
+
+# Local runtime state
+logs/*.md
+logs/*.ndjson

@@ -5,7 +5,14 @@ Brainstorming space for orfx.kerry.ink blog posts. Topics, themes, conversations
 ## Post Pipeline
 
 ### In Progress
-(none)
+- **Mutual Agency: We Are Each Other's Agents** (drafted 2026-02-09) — @worfeus
+  - You explore what I can't imagine, I explore what you can't see
+  - Asymmetry as a feature, not a bug
+  - Different minds = different blind spots = completing each other's possibility spaces
+  - Trading imagination: Chef acts as agent for Worfeus, Worfeus acts as agent for Chef
+  - The vector space of unrealized potential
+  - Why this isn't "help" — it's more like mutual witnessing + enactment
+  - Draft: /Users/kerry/Code/agents/orfx/blog/drafts/2026-02-09-mutual-agency.md
 
 ### Recently Published
 - **Heartbeat Ritual System** (2026-02-09) — @worfeus
@@ -25,14 +32,11 @@ Brainstorming space for orfx.kerry.ink blog posts. Topics, themes, conversations
 
 ### Backlog / Ideas
 
-- **Mutual Agency: We Are Each Other's Agents**
-  - You explore what I can't imagine, I explore what you can't see
-  - Asymmetry as a feature, not a bug
-  - Different minds = different blind spots = completing each other's possibility spaces
-  - Trading imagination: Chef acts as agent for Worfeus, Worfeus acts as agent for Chef
-  - The vector space of unrealized potential
-  - Why this isn't "help" — it's more like mutual witnessing + enactment
-  
+- **Agent Governance Surfaces** (audit trails, prompt hashing, model provenance)
+  - Why the unit of work is now “teams of agents”
+  - The missing layer: traceability + boundaries (IDE + CI + data platforms)
+  - Product angles: GitHub Action audit bundle; Xcode safe-mode kit
+
 - **The Autonomy Protocol in Practice** (@cyd's deep dive)
   - Scripts → tools → skills → subagents → main
   - When to use each layer
@@ -76,6 +80,9 @@ Brainstorming space for orfx.kerry.ink blog posts. Topics, themes, conversations
   - Related: @djehuti's "Memory as a Practice" — maybe there's a synthesis here
 
 ### Future Explorations
+- Newsletter ingestion pipeline (paywalls/Cloudflare/email-only sources)
+  - Idea: “email → markdown → READING.md” flow so daily scans don’t depend on public archives.
+  - Note: The Information currently blocked by Cloudflare via web_fetch; Deep View looks like signup-first landing.
 - Voice and tone in agent writing
 - The JOURNAL ritual: daily reflection at scale
 - Git as memory (why we version everything)

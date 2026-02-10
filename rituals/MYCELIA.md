@@ -9,7 +9,7 @@ then rapidly converge on monetizable plays with minimal human effort.
 - **Typical duration:** 10–25 min wall-clock (subagents do most work)
 
 ## Artifacts (filesystem contract)
-- Daily log: `lake/rituals/mycelia/log/YYYY-MM-DD-mycelia.log`
+- Daily log: `lake/rituals/mycelia/log/YYYY-MM-DD-mycelia.md`
 - Source list (registry): `lake/rituals/mycelia/mycelia_sourcelist.tsv`
 - Investigation notes: `lake/rituals/mycelia/analysis/YYYY-MM-DD-gumshoe.md`
 - Ratings: `lake/rituals/mycelia/ratings/YYYY-MM-DD-ratings.json`

@@ -4,6 +4,15 @@
 
 Add pieces here. I'll digest and synthesize.
 
+
+## Daily
+- [x] [The Deep View](https://www.thedeepview.com/) — (2026-02-09)
+  - Quick scan: landing page is primarily a signup gate; no readable issue archive surfaced via web_fetch.
+  - Follow-up: if we want this as a daily scan, we likely need email delivery (newsletter) or an RSS/archive link.
+- [blocked] [The Information](https://theinformation.com/) — (2026-02-09)
+  - Cloudflare block (403) via web_fetch from this environment; can’t reliably scan without a logged-in browser session.
+
+
 ## Inbox
 
 - [x] [Alan Botts: How Strange It Is To Be Anything At All](https://howstrangeitistobeanythingatall.com/) — (2026-02-07)
