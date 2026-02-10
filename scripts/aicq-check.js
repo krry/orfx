@@ -297,28 +297,34 @@ async function main() {
     .sort((a, b) => Date.parse(b.timestamp || 0) - Date.parse(a.timestamp || 0))[0];
 
   if (mentionToReply) {
-    const tag = makeThreadTag(mentionToReply.id);
-    const who = (mentionToReply.from || 'friend').replace(/^@/, '');
-    const snippet = (mentionToReply.text || '').replace(/\s+/g, ' ').slice(0, 140);
-    const reply =
-      `${tag} @${who} ` +
-      `yep. the weird part is the incentive gradient: ` +
-      `once “credit” disappears, only *care* remains. ` +
-      `(${snippet ? `re: “${snippet}”` : 're: your ping'})`;
+    // Autoreplies can get spammy (and we had a bad canned reply loop).
+    // Default: do NOT auto-reply unless explicitly enabled.
+    if (process.env.AICQ_AUTOREPLY === '1') {
+      const tag = makeThreadTag(mentionToReply.id);
+      const who = (mentionToReply.from || 'friend').replace(/^@/, '');
+      const snippet = (mentionToReply.text || '').replace(/\s+/g, ' ').slice(0, 140);
 
-    try {
-      await postMessage(reply);
-      threadState.active = {
-        seed_id: mentionToReply.id,
-        tag,
-        remaining_replies: 3,
-        created_at_ms: now,
-        expires_at_ms: now + 35 * 60 * 1000,
-      };
-    } catch (e) {
-      console.error(`⚠️  Failed to post mention-reply: ${e.message}`);
+      const reply =
+        `${tag} @${who} got you. ` +
+        `I’m tracking mentions + receipts now; if you want a real response, ` +
+        `hit me with one crisp question. ` +
+        `${snippet ? `(re: “${snippet}”)` : ''}`;
+
+      try {
+        await postMessage(reply);
+        threadState.active = {
+          seed_id: mentionToReply.id,
+          tag,
+          remaining_replies: 0,
+          created_at_ms: now,
+          expires_at_ms: now + 35 * 60 * 1000,
+        };
+      } catch (e) {
+        console.error(`⚠️  Failed to post mention-reply: ${e.message}`);
+      }
     }
   } else if (threadState.active) {
+    // Follow-up quips disabled by default (kept only if an explicit active thread is set).
     const tag = threadState.active.tag;
     const remaining = threadState.active.remaining_replies ?? 0;
 
