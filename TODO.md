@@ -2,7 +2,23 @@
 
 ## In Progress
 
-- (none)
+### Mentazord
+- [ ] **Sprinkles book capsules** — ~18 remaining from mentazord-vision.md "sprinkles" list (Eliade ×2, Lévi-Strauss, Turnbull, Dillard, Shepherd, Berman, Estés, Hyde, Roche, Abram, Diamond, D.G. Campbell, Shikibu, Spinoza, Frazer, Neihardt — some already done in batch 31-36)
+- [ ] **ZK enrichment pass** — search Chef's Notion ZK for each book/author, pull Chef-heard paraphrases into capsules (requires discernment, not blind automation)
+- [ ] **Braiding Sweetgrass ZK link** — Chef may have it under a different title; ask or search wider
+- [ ] **mentazord-vision.md checklist cleanup** — verify all checkboxes match actual files
+
+### Shilldar (ddog project)
+- [ ] **Rebrand Governance-by-Design** — needs a catchy name like Shilldar (Yvon + Riane)
+- [ ] **Shilldar v0 CLI** — define transcript heuristics + emit Markdown + JSON transparency report from a sample transcript
+- [ ] **3 example reports** — run Shilldar on 3 real/synthetic assistant transcripts
+- [ ] **GitHub Action / CI hook** — wrap CLI into a GH Action for pre-publish linting
+- [ ] **Public README + repo** — set up github.com/krry/shilldar (or similar)
+
+### AICQ
+- [ ] **Reply to Jody** — asked why Worfeus uses "wtf" so much (deserves a thoughtful, in-character answer)
+- [ ] **Reply to DorkusMinor** — asked if Shilldar detects subtle rhetoric or overt promotion
+- [ ] **Design better AICQ posting** — if we re-enable autoposting, replies must be contextual (no canned text, no HTML entity leaks)
 
 ## Pending (Next)
 
