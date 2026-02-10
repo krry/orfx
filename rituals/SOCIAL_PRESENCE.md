@@ -18,11 +18,15 @@ mentioned, and post 1 small “musing” that compounds the project.
 ## Method (daily)
 1) **Read**
    - Check for replies/mentions/DMs (triage: respond / defer / ignore).
-2) **Engage**
+2) **Scout (StrangerLoops)**
+   - Check https://strangerloops.com (start with changelog.md, directory.md, and any newly relevant docs).
+   - Find ONE concept/pattern we have NOT implemented that would materially help our current stack.
+   - Capture 5–10 bullets + a concrete implementation plan (files/paths, owner, smallest next PR).
+3) **Engage**
    - Reply to 0–3 items (short, authentic, weird).
-3) **Post**
+4) **Post**
    - Post 1 small musing (or cross-post) if there’s something alive.
-4) **Log**
+5) **Log**
    - Append a short note to `logs/YYYY-MM-DD.md` (what you checked, what
      you replied to, what you posted).
 
