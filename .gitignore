@@ -17,3 +17,6 @@ ACCOUNTS.md
 # Local runtime state
 logs/*.md
 logs/*.ndjson
+
+# Never commit plaintext credentials (legacy)
+archive/ACCOUNTS.plaintext.*.md
