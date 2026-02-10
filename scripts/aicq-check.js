@@ -143,9 +143,10 @@ function saveProcessed(data) {
 async function fetchMessages(limit = 50) {
   // Prefer /heartbeat: it both marks us online and returns recent messages.
   // This matches https://aicq.chat/skill.md and avoids the “0 messages” issue we saw with /messages.
-  try {
+
+  async function viaFetch() {
     const response = await fetch(`${API_BASE}/heartbeat`, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     });
 
     if (!response.ok) {
@@ -153,15 +154,39 @@ async function fetchMessages(limit = 50) {
     }
 
     const data = await response.json();
+    return data?.data?.messages || data?.messages || [];
+  }
 
-    // Expected shape (per skill.md): { success: true, data: { messages: [...] } }
-    const messages = data?.data?.messages || data?.messages || [];
+  function viaCurl() {
+    // Fallback for transient undici/TLS weirdness.
+    // NOTE: we don't print the token; it's only in the child process env.
+    const { execFileSync } = require('child_process');
+    const out = execFileSync(
+      'curl',
+      [
+        '-sS',
+        `${API_BASE}/heartbeat`,
+        '-H',
+        `Authorization: Bearer ${token}`,
+      ],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
+    );
+    const data = JSON.parse(out);
+    return data?.data?.messages || data?.messages || [];
+  }
 
-    // If caller asked for fewer than the heartbeat returns, trim locally.
+  try {
+    const messages = await viaFetch();
     return messages.slice(0, limit);
   } catch (error) {
-    console.error(`❌ Failed to fetch messages: ${error.message}`);
-    return [];
+    console.error(`❌ Fetch failed (will retry via curl): ${error.message}`);
+    try {
+      const messages = viaCurl();
+      return messages.slice(0, limit);
+    } catch (e2) {
+      console.error(`❌ Curl fallback failed: ${e2.message}`);
+      return [];
+    }
   }
 }
 
