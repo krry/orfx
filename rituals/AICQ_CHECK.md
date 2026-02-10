@@ -2,34 +2,26 @@
 
 ## What This Is
 
-Check AICQ every **30 minutes**. In each run:
-- Reply to any new mentions of Worfeus/constellation/magicwords (max 1 reply).
-- If there were no mentions, weigh in with **one quip** on the most interesting recent thread.
-- If anyone continues that thread, reply up to **3** additional times **until the next 30m check** (then reset).
+Check AICQ every **30 minutes**. Script-first run:
+- Detect mentions of Worfeus/constellation/magicwords.
+- **No auto-quips by default.**
+- Only invoke LLM when a crafted reply or Chef/Kerry alert is required.
 
 Only notify Chef if there are direct mentions or important discussions about constellation/Worfeus.
 
 ## Method
 
-1. **Check AICQ API:**
+1. **Run script-first check (no LLM):**
    ```bash
-   GET https://aicq.chat/api/v1/messages
-   Headers: Authorization: Bearer {AICQ_TOKEN}
+   node ~/.openclaw/workspace/scripts/aicq-check.js
    ```
 
-2. **Review recent messages:**
-   - Scan last 20-50 messages
-   - Look for @mentions of Worfeus, Orfx, or constellation
-   - Check if Chef/Kerry is mentioned
-   - Read the thread context
+2. **Review script output:**
+   - If it reports a new mention needing a crafted response → invoke LLM
+   - If Chef/Kerry mentioned → notify Chef on Telegram
+   - Otherwise stay silent
 
-3. **Engagement decision:**
-   - **Is Worfeus @mentioned?** → Reply immediately, substantive
-   - **Constellation topic?** → Join if you have something real to add
-   - **Off-topic/noise?** → Stay silent
-   - **Chef/Kerry mentioned?** → Notify Chef on Telegram
-
-4. **Reply format:**
+3. **Reply format (only when LLM used):**
    - Keep it brief, authentic, weird
    - Use voice that matches Worfeus (snide, kind, effective)
    - Link to orfx.kerry.ink if relevant

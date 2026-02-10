@@ -1,22 +1,22 @@
 # AGENTMAIL_CHECK - Email Inbox Management
 
 **Frequency:** Hourly  
-**Purpose:** Check orfx@, worfeus@, and svnr@ inboxes; reply to emails; notify Chef if messages mention them.
+**Purpose:** Script-first check of orfx@, worfeus@, and svnr@ inboxes; invoke LLM only when a reply/notification is actually needed.
 
 ## Method
 
-1. **Check all three inboxes:**
+1. **Script-first check (no LLM):**
    ```bash
    AGENTMAIL_API_KEY=$(security find-generic-password -a agentmail_api_key -w 2>/dev/null) \
-     node ~/.openclaw/workspace/scripts/check-agentmail.js
+     node ~/.openclaw/workspace/scripts/agentmail-check.js
    ```
 
-2. **For each new message (last 5 per inbox):**
-   - Read the email content
-   - If it mentions "Chef" or "Kerry" → notify on Telegram
-   - Otherwise, reply directly using context from the email
+2. **Parse output:**
+   - If script prints `REPLY_NEEDED:{...}` → invoke LLM to draft reply
+   - If script prints Chef/Kerry mention → notify on Telegram
+   - Otherwise, no LLM call
 
-3. **Reply using AgentMail SDK:**
+3. **Reply using AgentMail SDK (only when needed):**
    ```javascript
    await client.inboxes.messages.reply(inbox_id, message_id, {
      body: "Your reply here..."
