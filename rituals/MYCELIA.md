@@ -34,7 +34,7 @@ Prompt packet:
 ### 2) _gumshoe_ (detective)
 **Goal:** why unusual, who impacted, why undetected, key players + contacts.
 
-### 3) _oddity-rater_ (comparative scorer)
+### 3) _roger_ (comparative scorer)
 Rate against past logs (last 30 days if present):
 - **odditude** (subversion/obfuscation)
 - **itchiness** (volatility × impact)
@@ -64,7 +64,7 @@ We will not propose or execute illegal, harmful, or ToS-violating schemes.
 1) Spawn _saltpeter_ → write today’s `YYYY-MM-DD-mycelia.log`
 2) Update `mycelia_sourcelist.tsv` (add new sources, bump tallies)
 3) Spawn _gumshoe_ → write `analysis/YYYY-MM-DD-gumshoe.md`
-4) Spawn _oddity-rater_ → write `ratings/YYYY-MM-DD-ratings.json`
+4) Spawn _roger_ → write `ratings/YYYY-MM-DD-ratings.json`
 5) Spawn _raindancer_ → write `rain/YYYY-MM-DD-raindancer.md`
 6) Spawn _raincatcher_ → write `rain/YYYY-MM-DD-raincatcher.md`
 7) Add 1–3 “next actions” to TODO/WHITEBOARD
