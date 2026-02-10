@@ -2,11 +2,11 @@
 # Columns:
 # domain	name	url	type	rss_url	cadence_guess	why_high_signal	bias_angle_note	paywall_gate_risk	tags	notes	added_date	added_by	last_used	used_count	daily_core	monday_wide
 
-ycombinator.com	Hacker News	https://news.ycombinator.com/	rss	https://news.ycombinator.com/rss	continuous	Builder-first tech signal; fast trend emergence	SV builder bias	low	tech,aggregator		2026-02-09	wesley		0	1	1
-lobste.rs	Lobsters	https://lobste.rs/	rss	https://lobste.rs/rss	continuous	Dense engineering discourse; less hype than HN	OSS/engineering bias	low	tech,aggregator		2026-02-09	wesley		0	1	1
+ycombinator.com	Hacker News	https://news.ycombinator.com/	rss	https://news.ycombinator.com/rss	continuous	Builder-first tech signal; fast trend emergence	SV builder bias	low	tech,aggregator		2026-02-09	wesley	2026-02-09	1	1	1
+lobste.rs	Lobsters	https://lobste.rs/	rss	https://lobste.rs/rss	continuous	Dense engineering discourse; less hype than HN	OSS/engineering bias	low	tech,aggregator		2026-02-09	wesley	2026-02-09	1	1	1
 arstechnica.com	Ars Technica	https://arstechnica.com/	rss	http://feeds.arstechnica.com/arstechnica/index	daily	Tech/policy/security reporting with receipts	Pro-tech pragmatic	low	tech,news		2026-02-09	wesley		0	1	1
-theverge.com	The Verge	https://www.theverge.com/	rss	https://www.theverge.com/rss/index.xml	daily	Consumer tech + platform power, cultural edge	Culture-forward	low	tech,culture		2026-02-09	wesley		0	1	1
-wired.com	WIRED	https://www.wired.com/	rss	https://www.wired.com/feed/rss	daily	Tech + society lens; narrative signals	Trendy tech-cultural	medium	tech,culture	metered	2026-02-09	wesley		0	1	1
+theverge.com	The Verge	https://www.theverge.com/	rss	https://www.theverge.com/rss/index.xml	daily	Consumer tech + platform power, cultural edge	Culture-forward	low	tech,culture		2026-02-09	wesley	2026-02-09	1	1	1
+wired.com	WIRED	https://www.wired.com/	rss	https://www.wired.com/feed/rss	daily	Tech + society lens; narrative signals	Trendy tech-cultural	medium	tech,culture	metered	2026-02-09	wesley	2026-02-09	1	1	1
 reuters.com	Reuters	https://www.reuters.com/	site		continuous	Wire baseline for what actually happened	Institutional neutral-ish	medium	news-wire,world	Some gating possible	2026-02-09	wesley	2026-02-09	1	1	1
 npr.org	NPR (Top)	https://www.npr.org/	rss	https://feeds.npr.org/1001/rss.xml	daily	Broad US salience; decent signal-to-noise	Center-left cultural	low	news,us		2026-02-09	wesley		0	1	1
 bbc.co.uk	BBC World	https://www.bbc.com/news/world	rss	https://feeds.bbci.co.uk/news/world/rss.xml	daily	Global agenda-setting baseline	Institutional UK lens	low	news,world		2026-02-09	wesley		0	1	1
@@ -28,15 +28,15 @@ hyperallergic.com	Hyperallergic	https://hyperallergic.com/	rss	https://hyperalle
 polygon.com	Polygon	https://www.polygon.com/	rss	https://www.polygon.com/rss/index.xml	daily	Games releases + culture	xennial games culture	low	games,culture		2026-02-09	wesley		0	1	1
 
 # Existing additions (migrated)
-thedeepview.com	The Deep View	https://www.thedeepview.com/	site		weekly+	Curated frontier research/media	Varies	low	science,culture		2026-02-09	mycelia	2026-02-09	1	0	1
-fedscoop.com	FedScoop	https://fedscoop.com/	site		daily	Gov tech + procurement + agency churn	US fed IT lens	low	civics,tech		2026-02-09	mycelia	2026-02-09	1	0	1
+thedeepview.com	The Deep View	https://www.thedeepview.com/	site		weekly+	Curated frontier research/media	Varies	low	science,culture		2026-02-09	mycelia	2026-02-09	2	0	1
+fedscoop.com	FedScoop	https://fedscoop.com/	site		daily	Gov tech + procurement + agency churn	US fed IT lens	low	civics,tech		2026-02-09	mycelia	2026-02-09	2	0	1
 fenwick.com	Fenwick Insights	https://www.fenwick.com/insights	site		weekly	Tech law / startup legal tells	Law firm lens	low	law,tech		2026-02-09	mycelia	2026-02-09	1	0	1
-404media.co	404 Media	https://www.404media.co/	site		weekly+	Sharp on surveillance/platform governance	Adversarial to big tech	medium	tech,policy	Subscription; prefer newsletter ingestion	2026-02-09	wesley		0	0	1
+404media.co	404 Media	https://www.404media.co/	site		weekly+	Sharp on surveillance/platform governance	Adversarial to big tech	medium	tech,policy	Subscription; prefer newsletter ingestion	2026-02-09	wesley	2026-02-09	1	0	1
 stratechery.com	Stratechery	https://stratechery.com/	newsletter		2–4/wk	Durable platform strategy frameworks	Market/platform strategy	high	tech,analysis	Paid; use newsletter	2026-02-09	wesley		0	0	1
 ben-evans.com	Benedict Evans	https://www.ben-evans.com/	newsletter		weekly	Concise strategic lens on tech/markets	Investor/strategy lens	high	tech,analysis	Mostly paid	2026-02-09	wesley		0	0	1
 axios.com	Axios	https://www.axios.com/	newsletter		daily	Punchy US politics/business updates	Insider establishment	medium	news,us	Prefer newsletter	2026-02-09	wesley		0	0	1
 politico.com	POLITICO	https://www.politico.com/	site		daily	DC narrative + policy churn	Insider incentives	medium	politics,us	Metered	2026-02-09	wesley		0	0	1
-theguardian.com	The Guardian (World)	https://www.theguardian.com/world	rss	https://www.theguardian.com/world/rss	daily	Global angle; fast-moving	Progressive/activist tone	low	news,world		2026-02-09	wesley		0	0	1
+theguardian.com	The Guardian (World)	https://www.theguardian.com/world	rss	https://www.theguardian.com/world/rss	daily	Global angle; fast-moving	Progressive/activist tone	low	news,world		2026-02-09	wesley	2026-02-09	1	0	1
 csis.org	CSIS	https://www.csis.org/	site		weekly	Geopolitics/defense briefs	Hawkish institutional	low	policy,geopolitics		2026-02-09	wesley		0	0	1
 rand.org	RAND	https://www.rand.org/	site		weekly	Research-heavy policy; methods-first	Technocratic	low	policy,research		2026-02-09	wesley		0	0	1
 chathamhouse.org	Chatham House	https://www.chathamhouse.org/	site		weekly	UK/EU geopolitical analysis	Establishment IR	low	policy,geopolitics		2026-02-09	wesley		0	0	1
@@ -56,7 +56,7 @@ psyche.co	Psyche	https://psyche.co/	rss	https://psyche.co/feed.rss	weekly	Psycho
 ritholtz.com	The Big Picture (Ritholtz)	https://ritholtz.com/	rss	https://ritholtz.com/feed/	daily	Markets commentary with data links	Market practitioner	low	finance		2026-02-09	wesley		0	0	1
 marginalrevolution.com	Marginal Revolution	https://marginalrevolution.com/	rss	https://marginalrevolution.com/feed	daily	Econ blog; varied + sometimes prescient	Libertarian-leaning econ	low	economy		2026-02-09	wesley		0	0	1
 project-syndicate.org	Project Syndicate	https://www.project-syndicate.org/	rss	https://www.project-syndicate.org/rss	weekly	Pundit/elite op-eds; narrative map	Opinionated elite	medium	politics,propaganda	Label as op-ed	2026-02-09	wesley		0	0	1
-breakingdefense.com	Breaking Defense	https://breakingdefense.com/	rss	https://breakingdefense.com/feed/	daily	Defense industry + procurement tells	Defense industry	low	industry,geopolitics		2026-02-09	wesley		0	0	1
+breakingdefense.com	Breaking Defense	https://breakingdefense.com/	rss	https://breakingdefense.com/feed/	daily	Defense industry + procurement tells	Defense industry	low	industry,geopolitics		2026-02-09	wesley	2026-02-09	1	0	1
 sam.gov	SAM.gov (Contract notices)	https://sam.gov/	site		continuous	Procurement signals / gov buying behavior	US gov procurement	medium	industry,civics	May require specific queries	2026-02-09	wesley		0	0	1
 uspto.gov	USPTO (news)	https://www.uspto.gov/	site		weekly	Patent policy + IP hints	Institutional	low	industry,tech,law		2026-02-09	wesley		0	0	1
 steamcommunity.com	Steam News	https://store.steampowered.com/news/	site		daily	Game releases + platform shifts	Commercial	low	games		2026-02-09	wesley		0	0	1

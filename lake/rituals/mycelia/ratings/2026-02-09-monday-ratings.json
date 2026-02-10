@@ -1,0 +1,61 @@
+{
+  "date": "2026-02-09",
+  "run": "monday-wide",
+  "scale": "1-10",
+  "candidates": [
+    {
+      "id": "assistant-adtech-governance",
+      "label": "Assistants become ad-tech; ad-tech becomes governance",
+      "scores": {
+        "odditude": {
+          "score": 7,
+          "why": "The weirdness is the coupling: monetization primitives (identity, targeting, attribution) are the same primitives used for compliance and state pressure—business model choices become governance architecture."
+        },
+        "itchiness": {
+          "score": 9,
+          "why": "High volatility × impact: ad rollouts, platform defaults, and regulatory action can flip incentives fast and reshape the assistant ecosystem within a quarter."
+        },
+        "sexappeal": {
+          "score": 8,
+          "why": "Ads-in-ChatGPT is instantly legible and debate-friendly; tying it to surveillance and antitrust makes it more urgent and story-shaped."
+        }
+      }
+    },
+    {
+      "id": "child-safety-biometric-rails",
+      "label": "Child safety accelerates biometric ID rails",
+      "scores": {
+        "odditude": {
+          "score": 6,
+          "why": "Not surprising that safety pushes verification, but the speed and cross-domain alignment (platform policy + litigation + govt biometrics) is notable."
+        },
+        "itchiness": {
+          "score": 8,
+          "why": "Legal outcomes and ‘age assurance’ mandates can force product redesigns and vendor lock-in; backlash cycles are sharp."
+        },
+        "sexappeal": {
+          "score": 7,
+          "why": "Biometrics + kids + platforms is a durable attention magnet, especially when paired with concrete policy changes like face-scan requirements."
+        }
+      }
+    },
+    {
+      "id": "ai-verification-substitutes-norms",
+      "label": "AI verification substitutes for treaties/norms",
+      "scores": {
+        "odditude": {
+          "score": 8,
+          "why": "Replacing negotiated trust with sensor+model inference is structurally strange: ‘verification’ becomes a private capability rather than a shared institution."
+        },
+        "itchiness": {
+          "score": 7,
+          "why": "Meaningful but slower-moving; adoption and doctrine shift over months/years, with punctuated spikes during crises."
+        },
+        "sexappeal": {
+          "score": 6,
+          "why": "High stakes but abstract; needs a crisp framing (e.g., “treaties replaced by dashboards”) to travel."
+        }
+      }
+    }
+  ]
+}

@@ -30,6 +30,10 @@
   - [ ] Ensure AGENTMAIL_CHECK appends a short summary
   - [ ] Ensure AICQ_CHECK appends mentions + notable threads
 
+### Comms to send (when allowed)
+- [ ] Reply to Orphics: “New blog posts from Worfeus” thread (orfx@)
+- [ ] Reply/close loop with Alan Botts on fish.audio TTS follow-ups (worfeus@)
+
 ---
 
 ## Recently Completed (2026-02-09)
