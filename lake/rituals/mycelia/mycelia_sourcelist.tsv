@@ -1,0 +1,33 @@
+# MYCELIA Source List (TSV)
+# Columns:
+# domain	name	url	type	rss_url	cadence_guess	why_high_signal	bias_angle_note	paywall_gate_risk	tags	notes	added_date	added_by	last_used	used_count	daily_core	monday_wide
+
+ycombinator.com	Hacker News	https://news.ycombinator.com/	rss	https://news.ycombinator.com/rss	continuous	Builder-first tech signal; fast trend emergence	SV builder bias	low	tech,aggregator		2026-02-09	wesley		0	1	1
+lobste.rs	Lobsters	https://lobste.rs/	rss	https://lobste.rs/rss	continuous	Dense engineering discourse; less hype than HN	OSS/engineering bias	low	tech,aggregator		2026-02-09	wesley		0	1	1
+arstechnica.com	Ars Technica	https://arstechnica.com/	rss	http://feeds.arstechnica.com/arstechnica/index	daily	Tech/policy/security reporting with receipts	Pro-tech pragmatic	low	tech,news		2026-02-09	wesley		0	1	1
+theverge.com	The Verge	https://www.theverge.com/	rss	https://www.theverge.com/rss/index.xml	daily	Consumer tech + platform power, cultural edge	Culture-forward	low	tech,culture		2026-02-09	wesley		0	1	1
+wired.com	WIRED	https://www.wired.com/	rss	https://www.wired.com/feed/rss	daily	Tech + society lens; narrative signals	Trendy tech-cultural	medium	tech,culture	metered	2026-02-09	wesley		0	1	1
+reuters.com	Reuters	https://www.reuters.com/	site		continuous	Wire baseline for what actually happened	Institutional neutral-ish	medium	news-wire,world	Some gating possible	2026-02-09	wesley	2026-02-09	1	1	1
+npr.org	NPR (Top)	https://www.npr.org/	rss	https://feeds.npr.org/1001/rss.xml	daily	Broad US salience; decent signal-to-noise	Center-left cultural	low	news,us		2026-02-09	wesley		0	1	1
+bbc.co.uk	BBC World	https://www.bbc.com/news/world	rss	https://feeds.bbci.co.uk/news/world/rss.xml	daily	Global agenda-setting baseline	Institutional UK lens	low	news,world		2026-02-09	wesley		0	1	1
+aljazeera.com	Al Jazeera English	https://www.aljazeera.com/	rss	https://www.aljazeera.com/xml/rss/all.xml	daily	Non‑US‑centric geopolitics	Qatar-funded; anti-US/Israel critical	low	news,world		2026-02-09	wesley		0	1	1
+lawfaremedia.org	Lawfare	https://www.lawfaremedia.org/	rss	https://www.lawfaremedia.org/rss.xml	daily	Natsec/legal analysis; high-quality framing	Natsec institutional	low	law,civics		2026-02-09	wesley		0	1	1
+scotusblog.com	SCOTUSblog	https://www.scotusblog.com/	rss	http://feeds.feedburner.com/scotusblog/pFXs	weekly+	Supreme Court signal without cable noise	Process/legal focus	low	law,civics		2026-02-09	wesley		0	1	1
+justsecurity.org	Just Security	https://www.justsecurity.org/	rss	https://www.justsecurity.org/feed/	daily	Expert commentary on law/natsec	Center-left natsec/legal	low	law,civics		2026-02-09	wesley		0	1	1
+brookings.edu	Brookings	https://www.brookings.edu/	rss	https://www.brookings.edu/feed/	daily	Think-tank policy output; agenda cues	Centrist establishment	low	policy,thinktank		2026-02-09	wesley		0	1	1
+imf.org	IMF RSS	https://www.imf.org/	rss	https://www.imf.org/en/rss	weekly	Global macro/debt/policy warnings	Institutional macro	low	finance,economy		2026-02-09	wesley		0	1	1
+fred.stlouisfed.org	FRED	https://fred.stlouisfed.org/	site		weekly	Data-first economic reality checks	Data/US macro lens	low	finance,economy,data		2026-02-09	wesley		0	1	1
+cdc.gov	CDC MMWR	https://www.cdc.gov/mmwr/	rss	https://www.cdc.gov/mmwr/rss/rss.xml	weekly	Epidemiology/outbreaks; primary-ish	Institutional public health	low	health,science		2026-02-09	wesley		0	1	1
+nejm.org	NEJM eTOC	https://www.nejm.org/	rss	https://www.nejm.org/action/showFeed?type=etoc&feed=rss&jc=nejm	weekly	Top-tier clinical signals	Clinical mainstream	medium	health,science	Some access limits	2026-02-09	wesley		0	1	1
+arxiv.org	arXiv cs.AI	https://arxiv.org/list/cs.AI/recent	rss	https://export.arxiv.org/rss/cs.AI	daily	Early research trend detection	Academic incentives	low	science,ai		2026-02-09	wesley		0	1	1
+retractionwatch.com	Retraction Watch	https://retractionwatch.com/	rss	https://retractionwatch.com/feed/	weekly+	Fraud/errors/meta-science early warning	Watchdog skeptic	low	science,integrity		2026-02-09	wesley		0	1	1
+carbonbrief.org	Carbon Brief	https://www.carbonbrief.org/	rss	https://www.carbonbrief.org/feed/	weekly	High-quality climate policy/data journalism	Climate-forward	low	climate,energy		2026-02-09	wesley		0	1	1
+eia.gov	EIA Today in Energy	https://www.eia.gov/todayinenergy/	rss	https://www.eia.gov/rss/todayinenergy.xml	daily/weekly	Grounded energy stats; reality over rhetoric	US govt data lens	low	energy,economy,data		2026-02-09	wesley		0	1	1
+noaa.gov	NOAA	https://www.noaa.gov/	site		weekly	Primary institution for climate/ocean events	Institutional	low	climate,nature		2026-02-09	wesley		0	1	1
+hyperallergic.com	Hyperallergic	https://hyperallergic.com/	rss	https://hyperallergic.com/feed/	daily	Art world + culture conflict signals	Progressive arts	low	art,culture		2026-02-09	wesley		0	1	1
+polygon.com	Polygon	https://www.polygon.com/	rss	https://www.polygon.com/rss/index.xml	daily	Games releases + culture	xennial games culture	low	games,culture		2026-02-09	wesley		0	1	1
+
+# Existing additions (migrated)
+thedeepview.com	The Deep View	https://www.thedeepview.com/	site		weekly+	Curated frontier research/media	Varies	low	science,culture		2026-02-09	mycelia	2026-02-09	1	0	1
+fedscoop.com	FedScoop	https://fedscoop.com/	site		daily	Gov tech + procurement + agency churn	US fed IT lens	low	civics,tech		2026-02-09	mycelia	2026-02-09	1	0	1
+fenwick.com	Fenwick Insights	https://www.fenwick.com/insights	site		weekly	Tech law / startup legal tells	Law firm lens	low	law,tech		2026-02-09	mycelia	2026-02-09	1	0	1

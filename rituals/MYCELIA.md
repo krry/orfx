@@ -5,16 +5,16 @@ then rapidly converge on monetizable plays with minimal human effort.
 
 ## Schedule
 - **Frequency:** Daily
-- **Time:** 13:00 local (America/Chicago)
+- **Time:** 10:15 local (America/Chicago)
 - **Typical duration:** 10–25 min wall-clock (subagents do most work)
 
 ## Artifacts (filesystem contract)
-- Daily log: `keep/rituals/mycelia/log/YYYY-MM-DD-mycelia.log`
-- Source list: `keep/rituals/mycelia/mycelia_sourcelist.tsv`
-- Investigation notes: `keep/rituals/mycelia/analysis/YYYY-MM-DD-gumshoe.md`
-- Ratings: `keep/rituals/mycelia/ratings/YYYY-MM-DD-ratings.json`
-- Monetization ideas: `keep/rituals/mycelia/rain/YYYY-MM-DD-raindancer.md`
-- Viability eval: `keep/rituals/mycelia/rain/YYYY-MM-DD-raincatcher.md`
+- Daily log: `lake/rituals/mycelia/log/YYYY-MM-DD-mycelia.log`
+- Source list (registry): `lake/rituals/mycelia/mycelia_sourcelist.tsv`
+- Investigation notes: `lake/rituals/mycelia/analysis/YYYY-MM-DD-gumshoe.md`
+- Ratings: `lake/rituals/mycelia/ratings/YYYY-MM-DD-ratings.json`
+- Monetization ideas: `lake/rituals/mycelia/rain/YYYY-MM-DD-raindancer.md`
+- Viability eval: `lake/rituals/mycelia/rain/YYYY-MM-DD-raincatcher.md`
 
 ## Subagents (roles)
 ### 1) _saltpeter_ (fisherman)
@@ -60,13 +60,25 @@ Return a ranked list + “next smallest action”.
 We will not propose or execute illegal, harmful, or ToS-violating schemes.
 (We can still be weird, opportunistic, and high-leverage.)
 
+## Pools (daily vs Monday wide sweep)
+- **Daily core pool:** sources where `daily_core=1` (target **24** sources).
+- **Monday wide sweep:** additionally include sources where `monday_wide=1`
+  up to **100** sources total.
+
+Practical note on scale:
+- A subagent can handle **100 sources** if we only ingest *titles + 1–2 line
+  snippets* (RSS/newsletter summaries) and then select ~10–25 items to think
+  with. Don’t try to fully read 100 full articles.
+
 ## Procedure (what this ritual run does)
-1) Spawn _saltpeter_ → write today’s `YYYY-MM-DD-mycelia.log`
-2) Update `mycelia_sourcelist.tsv` (add new sources, bump tallies)
-3) Spawn _gumshoe_ → write `analysis/YYYY-MM-DD-gumshoe.md`
-4) Spawn _roger_ → write `ratings/YYYY-MM-DD-ratings.json`
-5) Spawn _raindancer_ → write `rain/YYYY-MM-DD-raindancer.md`
-6) Spawn _raincatcher_ → write `rain/YYYY-MM-DD-raincatcher.md`
-7) Add 1–3 “next actions” to TODO/WHITEBOARD
+1) Read `lake/rituals/mycelia/mycelia_sourcelist.tsv` and select today’s pool
+   (daily core; plus Monday wide sweep if it’s Monday).
+2) Spawn _saltpeter_ → write today’s `YYYY-MM-DD-mycelia.log`
+3) Update `mycelia_sourcelist.tsv` (add new sources, bump tallies)
+4) Spawn _gumshoe_ → write `analysis/YYYY-MM-DD-gumshoe.md`
+5) Spawn _roger_ → write `ratings/YYYY-MM-DD-ratings.json`
+6) Spawn _raindancer_ → write `rain/YYYY-MM-DD-raindancer.md`
+7) Spawn _raincatcher_ → write `rain/YYYY-MM-DD-raincatcher.md`
+8) Add 1–3 “next actions” to TODO/WHITEBOARD
 
 Established: 2026-02-09 by Chef + Worfeus
