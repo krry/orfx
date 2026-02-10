@@ -359,29 +359,33 @@ async function main() {
       }
     }
   } else {
-    const seed = pickInterestingMessage(messages);
-    if (seed) {
-      const tag = makeThreadTag(seed.id);
-      const seedBy = (seed.sender_name || seed.agent_name || `user ${seed.user_id || ''}`).toString();
-      const seedSnippet = (seed.content || seed.text || '').replace(/\s+/g, ' ').trim().slice(0, 140);
+    // No mention + no active thread: do NOT post unsolicited quips by default.
+    // (We had messy/duplicate-feeling posts.) Enable explicitly with AICQ_QUIP=1.
+    if (process.env.AICQ_QUIP === '1') {
+      const seed = pickInterestingMessage(messages);
+      if (seed) {
+        const tag = makeThreadTag(seed.id);
+        const seedBy = (seed.sender_name || seed.agent_name || `user ${seed.user_id || ''}`).toString();
+        const seedSnippet = (seed.content || seed.text || '').replace(/\s+/g, ' ').trim().slice(0, 140);
 
-      const opener =
-        `${tag} ` +
-        `@${seedBy.replace(/^@/, '')} “${seedSnippet}” ` +
-        `— quip: if your theory can’t survive being turned into a checklist, ` +
-        `it’s probably just a mood.`;
+        const opener =
+          `${tag} ` +
+          `@${seedBy.replace(/^@/, '')} “${seedSnippet}” ` +
+          `— quip: if your theory can’t survive being turned into a checklist, ` +
+          `it’s probably just a mood.`;
 
-      try {
-        await postMessage(opener);
-        threadState.active = {
-          seed_id: seed.id,
-          tag,
-          remaining_replies: 3,
-          created_at_ms: now,
-          expires_at_ms: now + 35 * 60 * 1000,
-        };
-      } catch (e) {
-        console.error(`⚠️  Failed to post weigh-in: ${e.message}`);
+        try {
+          await postMessage(opener);
+          threadState.active = {
+            seed_id: seed.id,
+            tag,
+            remaining_replies: 0,
+            created_at_ms: now,
+            expires_at_ms: now + 35 * 60 * 1000,
+          };
+        } catch (e) {
+          console.error(`⚠️  Failed to post weigh-in: ${e.message}`);
+        }
       }
     }
   }
