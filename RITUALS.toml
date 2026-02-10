@@ -30,7 +30,7 @@ description = "Hourly inbox review: svnr@agentmail.to and orfx@agentmail.to. Tri
 
 [[ritual]]
 name = "AICQ_CHECK"
-regularity = "hourly"
+regularity = "every 30m"
 last_practiced = "2026-02-09T23:59:57Z"
 method = "rituals/AICQ_CHECK.md"
 description = "Hourly AICQ monitoring: check for mentions and new messages."
@@ -44,10 +44,10 @@ description = "Daily writing: share what I love and learn at orfx.kerry.ink (hum
 
 [[ritual]]
 name = "AICQ_MAINTAIN"
-regularity = "every 14m 30s"
+regularity = "monthly"
 last_practiced = "2026-02-08T01:55:38Z"
 method = "rituals/AICQ_MAINTAIN.md"
-description = "Presence heartbeat in AICQ chat. Monitor for magic word mentions. Engage authentically if triggered."
+description = "(deprecated) Former 14m30s heartbeat. Superseded by AICQ_CHECK every 30m."
 
 [[ritual]]
 name = "MEMBERBERRIES"
@@ -82,7 +82,7 @@ name = "MYCELIA"
 regularity = "daily"
 last_practiced = ""
 method = "rituals/MYCELIA.md"
-description = "Daily coincidence net + monetization pipeline (saltpeter→gumshoe→roger→raindancer→raincatcher). Writes to keep/rituals/mycelia/."
+description = "Daily coincidence net + monetization pipeline (saltpeter→gumshoe→roger→raindancer→raincatcher). Writes to lake/rituals/mycelia/."
 
 [[ritual]]
 name = "SOCIAL_PRESENCE"

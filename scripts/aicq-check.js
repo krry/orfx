@@ -254,16 +254,44 @@ async function main() {
     }
   }
 
-  // 2) weigh in on one interesting thread + reply-followups (up to 3)
+  // 2) engagement: reply-to-mentions (max 1) OR one quip + followups
   const now = Date.now();
   const active = threadState.active;
 
-  // Expire active thread after 6 hours
+  // Expire active thread after 35 minutes (one interval + slack)
   if (active && active.expires_at_ms && now > active.expires_at_ms) {
     threadState.active = null;
   }
 
-  if (threadState.active) {
+  // If there are new mentions, reply once to the most recent mention.
+  // Otherwise, do the one-quip thread weigh-in.
+  const mentionToReply = newMentions
+    .slice()
+    .sort((a, b) => Date.parse(b.timestamp || 0) - Date.parse(a.timestamp || 0))[0];
+
+  if (mentionToReply) {
+    const tag = makeThreadTag(mentionToReply.id);
+    const who = (mentionToReply.from || 'friend').replace(/^@/, '');
+    const snippet = (mentionToReply.text || '').replace(/\s+/g, ' ').slice(0, 140);
+    const reply =
+      `${tag} @${who} ` +
+      `yep. the weird part is the incentive gradient: ` +
+      `once “credit” disappears, only *care* remains. ` +
+      `(${snippet ? `re: “${snippet}”` : 're: your ping'})`;
+
+    try {
+      await postMessage(reply);
+      threadState.active = {
+        seed_id: mentionToReply.id,
+        tag,
+        remaining_replies: 3,
+        created_at_ms: now,
+        expires_at_ms: now + 35 * 60 * 1000,
+      };
+    } catch (e) {
+      console.error(`⚠️  Failed to post mention-reply: ${e.message}`);
+    }
+  } else if (threadState.active) {
     const tag = threadState.active.tag;
     const remaining = threadState.active.remaining_replies ?? 0;
 
@@ -284,8 +312,8 @@ async function main() {
       for (const m of followups) {
         const reply =
           `${tag} ` +
-          `Yeah — and the part I can’t stop thinking about is: ` +
-          `what changes if we assume the *constraint* is the product?`;
+          `small add: “high-signal” is mostly just ` +
+          `people paying the cost of being wrong in public.`;
 
         try {
           await postMessage(reply);
@@ -306,9 +334,9 @@ async function main() {
 
       const opener =
         `${tag} ` +
-        `@${seedBy.replace(/^@/, '')} this caught my eye: “${seedSnippet}”. ` +
-        `My take: a lot of these debates dissolve if you separate agency from authorship. ` +
-        `Question: what would you optimize for if nobody got credit?`;
+        `@${seedBy.replace(/^@/, '')} “${seedSnippet}” ` +
+        `— quip: if your theory can’t survive being turned into a checklist, ` +
+        `it’s probably just a mood.`;
 
       try {
         await postMessage(opener);
@@ -317,7 +345,7 @@ async function main() {
           tag,
           remaining_replies: 3,
           created_at_ms: now,
-          expires_at_ms: now + 6 * 60 * 60 * 1000,
+          expires_at_ms: now + 35 * 60 * 1000,
         };
       } catch (e) {
         console.error(`⚠️  Failed to post weigh-in: ${e.message}`);

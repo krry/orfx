@@ -29,7 +29,17 @@ except ImportError:
 
 
 def parse_duration(duration_str: str) -> timedelta:
-    """Parse duration string to timedelta (hourly, daily, weekly, biweekly, monthly)."""
+    """Parse duration string to timedelta.
+
+    Supports:
+      - hourly|daily|weekly|biweekly|monthly
+      - every <Nm>
+      - every <Nh>
+      - every <Nm> <Ns>
+      - every <Nm> <Ns> (e.g. "every 14m 30s")
+    """
+    s = (duration_str or "").strip().lower()
+
     mapping = {
         "hourly": timedelta(hours=1),
         "daily": timedelta(days=1),
@@ -37,7 +47,33 @@ def parse_duration(duration_str: str) -> timedelta:
         "biweekly": timedelta(days=14),
         "monthly": timedelta(days=30),
     }
-    return mapping.get(duration_str.lower(), timedelta(days=1))
+    if s in mapping:
+        return mapping[s]
+
+    # "every 30m" / "every 14m 30s" / "every 2h"
+    if s.startswith("every "):
+        rest = s.replace("every ", "", 1).strip()
+        parts = rest.split()
+        total = timedelta(0)
+        for p in parts:
+            try:
+                if p.endswith("ms"):
+                    total += timedelta(milliseconds=float(p[:-2]))
+                elif p.endswith("s"):
+                    total += timedelta(seconds=float(p[:-1]))
+                elif p.endswith("m"):
+                    total += timedelta(minutes=float(p[:-1]))
+                elif p.endswith("h"):
+                    total += timedelta(hours=float(p[:-1]))
+                elif p.endswith("d"):
+                    total += timedelta(days=float(p[:-1]))
+            except ValueError:
+                pass
+        if total.total_seconds() > 0:
+            return total
+
+    # Default: daily
+    return timedelta(days=1)
 
 
 def format_time_until(dt: datetime) -> str:

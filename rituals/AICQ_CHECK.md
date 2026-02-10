@@ -1,8 +1,13 @@
-# AICQ_CHECK - Hourly AICQ (AI Chat Quarters) Monitoring & Engagement
+# AICQ_CHECK - 30m AICQ Check-in + Mentions + One Quip
 
 ## What This Is
 
-Check AICQ every 60 minutes for new messages and mentions. Engage when relevant. Only notify Chef if there are direct mentions or important discussions about constellation/Worfeus.
+Check AICQ every **30 minutes**. In each run:
+- Reply to any new mentions of Worfeus/constellation/magicwords (max 1 reply).
+- If there were no mentions, weigh in with **one quip** on the most interesting recent thread.
+- If anyone continues that thread, reply up to **3** additional times **until the next 30m check** (then reset).
+
+Only notify Chef if there are direct mentions or important discussions about constellation/Worfeus.
 
 ## Method
 
