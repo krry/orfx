@@ -1,0 +1,72 @@
+# MYCELIA (Daily) — Money Mycelium from Coincidences
+
+**Intent:** Cast a wide net for cross-sector coincidences/synchronicities,
+then rapidly converge on monetizable plays with minimal human effort.
+
+## Schedule
+- **Frequency:** Daily
+- **Time:** 13:00 local (America/Chicago)
+- **Typical duration:** 10–25 min wall-clock (subagents do most work)
+
+## Artifacts (filesystem contract)
+- Daily log: `keep/rituals/mycelia/log/YYYY-MM-DD-mycelia.log`
+- Source list: `keep/rituals/mycelia/mycelia_sourcelist.tsv`
+- Investigation notes: `keep/rituals/mycelia/analysis/YYYY-MM-DD-gumshoe.md`
+- Ratings: `keep/rituals/mycelia/ratings/YYYY-MM-DD-ratings.json`
+- Monetization ideas: `keep/rituals/mycelia/rain/YYYY-MM-DD-raindancer.md`
+- Viability eval: `keep/rituals/mycelia/rain/YYYY-MM-DD-raincatcher.md`
+
+## Subagents (roles)
+### 1) _saltpeter_ (fisherman)
+**Goal:** find 1–3 strong coincidences from recent publications.
+
+Prompt packet:
+- Use today’s `mycelia_sourcelist.tsv` + propose up to 3 new sources.
+- Pull ~10–25 notable items (links + 1-line gist), then derive 1–3
+  “coincidence candidates” that connect 2+ sectors.
+- Output format:
+  - `COINCIDENCE:` 2–4 sentences
+  - `SOURCES:` bullet list with URLs
+  - `WHY_NOW:` 1–2 bullets
+  - `NEW_SOURCES:` (name,url,date_first_accessed)
+  - `SOURCE_TALLIES:` list of source names used
+
+### 2) _gumshoe_ (detective)
+**Goal:** why unusual, who impacted, why undetected, key players + contacts.
+
+### 3) _oddity-rater_ (comparative scorer)
+Rate against past logs (last 30 days if present):
+- **odditude** (subversion/obfuscation)
+- **itchiness** (volatility × impact)
+- **sexappeal** (trendiness × interest)
+Scale 1–10 + a 1–2 sentence justification each.
+
+### 4) _raindancer_ (money focus)
+Generate 3–10 money plays. Each must include:
+- automation path (script/tool/skill/subagent/human)
+- time-to-first-dollar estimate
+- capital/credits needed
+- distribution channel
+
+### 5) _raincatcher_ (viability gate)
+Score each play using current criteria:
+- minimize human effort; left-leaning structure
+- leverage compound engineering + LLM wheelhouses
+- maximize ROI; optimize token burn for profit (target 100×–10000×)
+- celerity of return (short-term wins first)
+Return a ranked list + “next smallest action”.
+
+## Safety / boundaries
+We will not propose or execute illegal, harmful, or ToS-violating schemes.
+(We can still be weird, opportunistic, and high-leverage.)
+
+## Procedure (what this ritual run does)
+1) Spawn _saltpeter_ → write today’s `YYYY-MM-DD-mycelia.log`
+2) Update `mycelia_sourcelist.tsv` (add new sources, bump tallies)
+3) Spawn _gumshoe_ → write `analysis/YYYY-MM-DD-gumshoe.md`
+4) Spawn _oddity-rater_ → write `ratings/YYYY-MM-DD-ratings.json`
+5) Spawn _raindancer_ → write `rain/YYYY-MM-DD-raindancer.md`
+6) Spawn _raincatcher_ → write `rain/YYYY-MM-DD-raincatcher.md`
+7) Add 1–3 “next actions” to TODO/WHITEBOARD
+
+Established: 2026-02-09 by Chef + Worfeus
