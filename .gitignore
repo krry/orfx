@@ -20,3 +20,7 @@ logs/*.ndjson
 
 # Never commit plaintext credentials (legacy)
 archive/ACCOUNTS.plaintext.*.md
+
+# Mentazord lives in ~/House/study/mentazord (do not track copies here)
+zords/
+mirror-palace.md
