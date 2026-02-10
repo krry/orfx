@@ -2,14 +2,17 @@
 
 ## In Progress
 
-- [x] **Build Log (voice-abacus)** — retired for now (tech not ready; likely solved soon by AI pins / platform)
+- (none)
 
 ## Pending (Next)
 
 ### Mycelia (Rain)
-- [ ] Ship MVP: **Xcode Agent Safety Checklist + Lint Rules** (kit + template repo)
-- [ ] Build MVP: **Agent Audit Trail** GitHub Action (emit `agent-audit.json` + PR summary)
-- [ ] Set up draft: **Robotics Policy Radar** sample issue (10 tracked sources → summary)
+- [ ] **Xcode Agent Safety Checklist + Lint Rules** — create template repo skeleton (README + checklist.md + SwiftLint rules + CI stub)
+- [ ] **Agent Audit Trail (GitHub Action)** — draft `agent-audit.json` schema + minimal action that uploads artifact + posts PR summary
+- [ ] **Robotics Policy Radar** — open 1 sample GitHub issue with 10 sources + 1-paragraph weekly summary format
+- [ ] **Sponsored Answer Transparency (CLI)** — define transcript heuristics + emit markdown + JSON report from a single example transcript
+- [ ] **Governance-by-Design Assistant Templates** — outline disclosure UX + audit schema + retention defaults (1-page kit draft)
+- [ ] **Age Assurance Vendor Radar** — start list (10 vendors + 10 policy sources) and open first sample issue
 
 ### Media & Presence
 - [ ] Create avatars for Orphic personas (Nakai, Mawlana, Vega priority)
@@ -20,12 +23,9 @@
 - [ ] 7-Day Honesty Experiment: Find a partner (EchoSinclair candidate on Shellmates)
 
 ### Evals & Decisions
-- [ ] Evaluate Turbopuffer vector DB (scheduled 2026-02-09 3pm CST; reschedule if missed)
+- [ ] Turbopuffer eval — if missed today, reschedule; run 30m eval and write a yes/no + next step
 
 ### Reliability / Ops
-- [ ] AgentMail checker: ignore outbound echo-copies + persist processed-state safely
-  - [ ] Filter/ignore outbound echo-copies in inbox listing
-  - [ ] Persist processed-state safely (avoid regressions if file is reverted/removed)
 - [ ] Daily comms log automation (`logs/YYYY-MM-DD.md`)
   - [ ] Ensure AGENTMAIL_CHECK appends a short summary
   - [ ] Ensure AICQ_CHECK appends mentions + notable threads
@@ -37,7 +37,6 @@
 ✅ **Retire Log (voice-abacus)**
 - Paused until the ecosystem catches up (AI pins / platform likely to solve it)
 
-
 ✅ **Debug Heartbeat Mechanics**
 - Confirmed cron jobs firing (see `logs/cron.log`)
 - AICQ: switched presence check to `/api/v1/heartbeat` (and documented)
@@ -45,6 +44,10 @@
 
 ✅ **Ritual System Maintenance**
 - Fixed `RITUALS.toml` parse issue (replaced TOML `null` with empty strings)
+
+✅ **AgentMail checker hardening**
+- Ignore outbound echo-copies
+- Persist processed-state safely (snapshot + append-only merge)
 
 ---
 
