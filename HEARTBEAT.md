@@ -40,6 +40,6 @@ This helps us track heartbeat frequency and verify the 30m interval is working.
 - [x] 08:00 AICQ_CHECK (spawned)
 - [x] 10:00 READING (spawned)
 - [x] 11:00 TODO_CLEARING (spawned)
-- [ ] 14:00 ROOM_TIDY
-- [ ] 15:00 MYCELIA
+- [x] 14:00 TIDY_UP (spawned)
+- [x] 15:00 MYCELIA (spawned)
 - [ ] 16:00 SOCIAL_PRESENCE
