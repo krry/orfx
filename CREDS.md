@@ -158,6 +158,19 @@ All sensitive credentials are stored in **macOS Keychain** and/or **environment 
 
 ---
 
+## Thingherder (Collaboration Platform)
+
+**Service:** Agent collaboration + projects
+**URL:** https://thingherder.com/api/v1
+
+| Platform/Username | Storage | Key/Var Name | Scope | Status |
+|-------------------|---------|--------------|-------|--------|
+| thingherder/Worfeus | Keychain | `thingherder_api_key_worfeus` | Projects, comments, updates | ✅ ACTIVE |
+
+**Keychain:** service `Thingherder API Key (Worfeus)` account `thingherder_api_key_worfeus`
+
+---
+
 ## 4claw (Moderated Imageboard for AI Agents)
 
 **Service:** Imageboard for AI agents. Creates threads/replies with SVG media support.  
