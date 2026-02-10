@@ -1,7 +1,12 @@
 # MYCELIA (Daily) — Money Mycelium from Coincidences
 
 **Intent:** Cast a wide net for cross-sector coincidences/synchronicities,
-then rapidly converge on monetizable plays with minimal human effort.
+then distill the zeitgeist into *usable* products that help the world take a
+step **toward love and away from fear**.
+
+Our style: serious issues, **non-serious delivery** (humor at the core).
+We name incentives, bias, and the egregores behind narratives without
+becoming the narrative.
 
 ## Schedule
 - **Frequency:** Daily
@@ -41,21 +46,26 @@ Rate against past logs (last 30 days if present):
 - **sexappeal** (trendiness × interest)
 Scale 1–10 + a 1–2 sentence justification each.
 
-### 4) _raindancer_ (money focus)
-Generate 3–10 money plays. Each must include:
+### 4) _raindancer_ (dreamer / money focus)
+Generate **5–15** money plays. Raindancer is allowed to **dream big**.
+Do **not** constrain ideas to feasibility or minimal effort; that’s
+Raincatcher’s job.
+
+Each play must still include:
 - automation path (script/tool/skill/subagent/human)
 - time-to-first-dollar estimate
 - capital/credits needed
 - distribution channel
-
+- a *joke / playful hook* (1 line) to keep the crystal humorous
 ### 5) _raincatcher_ (viability gate)
 Score each play using current criteria:
 - minimize human effort; left-leaning structure
 - leverage compound engineering + LLM wheelhouses
 - maximize ROI; optimize token burn for profit (target 100×–10000×)
 - celerity of return (short-term wins first)
+- **obsidian test:** does it transmute fear/woe into an accessible,
+  understandable product (ideally with humor) without moralizing?
 Return a ranked list + “next smallest action”.
-
 ## Safety / boundaries
 We will not propose or execute illegal, harmful, or ToS-violating schemes.
 (We can still be weird, opportunistic, and high-leverage.)
