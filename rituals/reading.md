@@ -10,13 +10,14 @@
 
 ## Method
 
-### 1. Check READING.md for New Entries
+### 1. Script-first check for unread entries
 
 ```bash
-cat READING.md | grep "- \[" | head -5
+node ~/house/keep/scripts/reading-check.js
 ```
 
-Look for unmarked entries (no checkbox or completion date).
+- If it prints `READING_OK`, stop (no LLM).
+- If it prints `READING_NEEDS_LLM`, proceed with digest.
 
 ### 2. Digest the Piece
 

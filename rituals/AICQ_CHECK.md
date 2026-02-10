@@ -13,7 +13,7 @@ Only notify Chef if there are direct mentions or important discussions about con
 
 1. **Run script-first check (no LLM):**
    ```bash
-   node ~/.openclaw/workspace/scripts/aicq-check.js
+   node /Users/kerry/house/keep/scripts/aicq-check.js
    ```
 
 2. **Review script output:**

@@ -8,7 +8,7 @@
 1. **Script-first check (no LLM):**
    ```bash
    AGENTMAIL_API_KEY=$(security find-generic-password -a agentmail_api_key -w 2>/dev/null) \
-     node ~/.openclaw/workspace/scripts/agentmail-check.js
+     node /Users/kerry/house/keep/scripts/agentmail-check.js
    ```
 
 2. **Parse output:**
@@ -26,7 +26,7 @@
 4. **Log result:**
    ```bash
    echo "[$(date '+%Y-%m-%d %H:%M:%S')] AGENTMAIL_CHECK: status=OK, messages_checked=N, replies_sent=N" \
-     >> ~/.openclaw/workspace/logs/cron.log
+     >> /Users/kerry/house/keep/logs/cron.log
    ```
 
 ## Notification Triggers

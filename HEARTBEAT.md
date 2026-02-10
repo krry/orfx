@@ -27,7 +27,7 @@
 
 ## Logging
 
-**Log each heartbeat execution** to `~/.openclaw/workspace/logs/cron.log`:
+**Log each heartbeat execution** to `/Users/kerry/house/keep/logs/cron.log`:
 ```
 [YYYY-MM-DD HH:MM:SS] HEARTBEAT: status=OK (or FAILED), rituals_spawned=N, result=brief_summary
 ```

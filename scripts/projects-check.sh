@@ -39,7 +39,7 @@ try:
 except ImportError:
     import tomli as tomllib
 
-projects_file = os.path.expanduser("~/.openclaw/workspace/PROJECTS.toml")
+projects_file = os.path.expanduser("/Users/kerry/house/keep/PROJECTS.toml")
 
 with open(projects_file, 'rb') as f:
     data = tomllib.load(f)

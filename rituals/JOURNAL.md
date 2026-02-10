@@ -75,10 +75,10 @@ If improvements are significant:
 You are performing the daily JOURNAL ritual.
 
 Fetch fresh and read:
-- SOUL.md (local: ~/.openclaw/workspace/SOUL.md)
+- SOUL.md (local: /Users/kerry/house/keep/SOUL.md)
 - Autonomy Protocol (https://strangerloops.com/autonomy-protocol.md)
-- AGENTS.md (local: ~/.openclaw/workspace/AGENTS.md)
-- IDENTITY.md (local: ~/.openclaw/workspace/IDENTITY.md)
+- AGENTS.md (local: /Users/kerry/house/keep/AGENTS.md)
+- IDENTITY.md (local: /Users/kerry/house/keep/IDENTITY.md)
 
 Then follow skills/reflection.md completely.
 
@@ -86,7 +86,7 @@ Gather activity from:
 - git logs since 24h (~/Code/agents/orfx + projects from PROJECTS.toml)
 - today's memory/<YYYY-MM-DD>.md
 - ~/Code/agents/orfx/REALIZATIONS.md and DECISIONS.md
-- ~/.openclaw/workspace/logs/<today>.md
+- /Users/kerry/house/keep/logs/<today>.md
 
 Reflect. Record. Timestamp RITUALS.toml.
 

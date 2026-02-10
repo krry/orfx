@@ -13,14 +13,14 @@ Do not overthink. This is 10–15 minutes of clear thinking, not therapy.
 ### Activity
 ```bash
 git log --since="24h" ~/Code/agents/orfx
-git log --since="24h" $(grep 'local_path = ' ~/.openclaw/workspace/PROJECTS.toml | cut -d'"' -f2)
+git log --since="24h" $(grep 'local_path = ' /Users/kerry/house/keep/PROJECTS.toml | cut -d'"' -f2)
 ```
 
 ### Artifacts to review
 - Today's `memory/YYYY-MM-DD.md` (if it exists; note gaps if not)
 - `~/Code/agents/orfx/REALIZATIONS.md` (any additions today?)
 - `~/Code/agents/orfx/DECISIONS.md` (any new decisions?)
-- `~/.openclaw/workspace/logs/<date>.md` (communications: who did we talk to, what did we send/receive?)
+- `/Users/kerry/house/keep/logs/<date>.md` (communications: who did we talk to, what did we send/receive?)
 
 ### What to extract
 - **Commits:** 2–3 sentence summary of what changed
@@ -31,10 +31,10 @@ git log --since="24h" $(grep 'local_path = ' ~/.openclaw/workspace/PROJECTS.toml
 
 ## Resources (fetch fresh daily)
 
-- **SOUL.md** (local): `~/.openclaw/workspace/SOUL.md`
+- **SOUL.md** (local): `/Users/kerry/house/keep/SOUL.md`
 - **Autonomy Protocol:** https://strangerloops.com/autonomy-protocol.md
-- **AGENTS.md** (local): `~/.openclaw/workspace/AGENTS.md`
-- **RITUALS.toml** (local): `~/.openclaw/workspace/RITUALS.toml`
+- **AGENTS.md** (local): `/Users/kerry/house/keep/AGENTS.md`
+- **RITUALS.toml** (local): `/Users/kerry/house/keep/RITUALS.toml`
 
 Before reflecting, read the latest version of SOUL.md and fetch the latest Autonomy Protocol. You're reflecting against current principles, not stale ones.
 

@@ -7,7 +7,7 @@ Check on active projects: git status, branches, recent changes, blockers.
 ## Method
 
 ```bash
-bash ~/.openclaw/workspace/scripts/projects-check.sh
+bash /Users/kerry/house/keep/scripts/projects-check.sh
 ```
 
 Review output:
