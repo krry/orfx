@@ -1,6 +1,6 @@
 # PROJECTS.toml — Active projects registry
 
-last_updated = "2026-02-07T14:31:00Z"
+last_updated = "2026-02-10T02:13:00Z"
 
 [[project]]
 name = "Souvenir (SVNR)"
@@ -52,3 +52,11 @@ local_path = "~/House/desk/orfx-site"
 build_command = "npm run dev"
 deployment = "Vercel"
 description = "Voice & witness. Astro 5 + Svelte 5 + Tailwind v4. Dark mode (Slate 950 + Amber 400)."
+
+[[project]]
+name = "Bring (webring widget)"
+status = "active"
+type = "web component"
+repo = ""
+local_path = "~/House/desk/bring"
+description = "Webring widget for *.kerry.ink sites (ESM CDN module + Web Component)."
