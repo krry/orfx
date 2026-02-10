@@ -23,25 +23,98 @@ if (!apiKey) {
 
 const client = new AgentMailClient({ apiKey });
 
-// Track which messages we've already processed
+// Track which messages we've already processed.
+// We persist state in two forms:
+// - JSON snapshot (fast load)
+// - NDJSON append-only log (robust against accidental snapshot rollback)
 const PROCESSED_FILE = path.join(process.env.HOME, '.openclaw/workspace/logs/agentmail-processed.json');
+const PROCESSED_LOG = path.join(process.env.HOME, '.openclaw/workspace/logs/agentmail-processed.ndjson');
+
+const OUR_INBOXES = new Set([
+  'orfx@agentmail.to',
+  'worfeus@agentmail.to',
+  'svnr@agentmail.to',
+]);
+
+function normAddr(v) {
+  const s = (v || '').toString().trim();
+  const m = s.match(/<([^>]+)>/);
+  const emailish = (m && m[1]) ? m[1] : s;
+  return emailish.trim().toLowerCase();
+}
+
+function isEchoCopy(msg, inboxId) {
+  const from = normAddr(msg.from);
+  // AgentMail sometimes returns `to` as string or array-ish.
+  const toRaw = msg.to;
+  const toList = Array.isArray(toRaw)
+    ? toRaw
+    : typeof toRaw === 'string'
+      ? toRaw.split(',')
+      : [];
+  const to = toList.map(normAddr);
+
+  const fromIsUs = OUR_INBOXES.has(from);
+  const toIncludesUs = to.includes(normAddr(inboxId));
+
+  // Echo/outbound copies typically have from=us, and are either (a) addressed
+  // to an external party, or (b) include us as a copied recipient.
+  // Either way: we don't want to treat them as “new inbound mail”.
+  if (fromIsUs) return true;
+
+  // Defensive: sometimes msg.from can be blank but msg.to is us and subject/body
+  // mirrors our outbound. We can't perfectly detect that without Message-ID,
+  // so we only skip the obvious from=us case.
+  return false;
+}
 
 function loadProcessed() {
+  const base = { messages: {} };
   try {
     if (fs.existsSync(PROCESSED_FILE)) {
-      return JSON.parse(fs.readFileSync(PROCESSED_FILE, 'utf8'));
+      Object.assign(base, JSON.parse(fs.readFileSync(PROCESSED_FILE, 'utf8')));
     }
   } catch (error) {
-    console.error('⚠️  Failed to load processed messages:', error.message);
+    console.error('⚠️  Failed to load processed snapshot:', error.message);
   }
-  return { messages: {} };
+
+  // Merge append-only log (if present). This prevents “echo resurrection” if
+  // the snapshot file is reverted/overwritten.
+  try {
+    if (fs.existsSync(PROCESSED_LOG)) {
+      const lines = fs.readFileSync(PROCESSED_LOG, 'utf8').split('\n').filter(Boolean);
+      for (const line of lines) {
+        try {
+          const ev = JSON.parse(line);
+          if (ev && ev.msgKey) base.messages[ev.msgKey] = ev.data || { logged: true };
+        } catch {
+          // ignore corrupt line
+        }
+      }
+    }
+  } catch (error) {
+    console.error('⚠️  Failed to merge processed log:', error.message);
+  }
+
+  if (!base.messages) base.messages = {};
+  return base;
+}
+
+function appendProcessedEvent(msgKey, data) {
+  try {
+    fs.appendFileSync(PROCESSED_LOG, JSON.stringify({ msgKey, data, at: new Date().toISOString() }) + '\n', 'utf8');
+  } catch (error) {
+    console.error('⚠️  Failed to append processed event:', error.message);
+  }
 }
 
 function saveProcessed(data) {
   try {
-    fs.writeFileSync(PROCESSED_FILE, JSON.stringify(data, null, 2), 'utf8');
+    const tmp = PROCESSED_FILE + '.tmp';
+    fs.writeFileSync(tmp, JSON.stringify(data, null, 2), 'utf8');
+    fs.renameSync(tmp, PROCESSED_FILE);
   } catch (error) {
-    console.error('⚠️  Failed to save processed messages:', error.message);
+    console.error('⚠️  Failed to save processed snapshot:', error.message);
   }
 }
 
@@ -147,6 +220,13 @@ async function checkInbox(inboxId, processed) {
         continue;
       }
       
+      // Skip obvious outbound echo copies (from us)
+      if (isEchoCopy(msg, inboxId)) {
+        processed.messages[msgKey] = { selfSentEcho: true, processedAt: new Date().toISOString() };
+        appendProcessedEvent(msgKey, processed.messages[msgKey]);
+        continue;
+      }
+
       newCount++;
       console.log(`\n   📧 New message from ${msg.from || 'unknown'}`);
       console.log(`      Subject: ${msg.subject || '(no subject)'}`);
@@ -166,6 +246,7 @@ async function checkInbox(inboxId, processed) {
           processedAt: new Date().toISOString(),
           notified: true
         };
+        appendProcessedEvent(msgKey, processed.messages[msgKey]);
       } else {
         // Output message for ritual handler to reply
         console.log('      💬 Needs reply → sending to ritual handler');
@@ -178,6 +259,7 @@ async function checkInbox(inboxId, processed) {
           status: 'pending_reply',
           queuedAt: new Date().toISOString()
         };
+        appendProcessedEvent(msgKey, processed.messages[msgKey]);
       }
     }
     
