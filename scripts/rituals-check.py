@@ -101,7 +101,7 @@ def main() -> int:
     ap.add_argument("--json", action="store_true")
     args = ap.parse_args()
 
-    rituals_file = Path.home() / ".openclaw" / "workspace" / "RITUALS.toml"
+    rituals_file = Path.home() / "house/keep" / "RITUALS.toml"
     
     if not rituals_file.exists():
         print(f"❌ {rituals_file} not found", file=sys.stderr)

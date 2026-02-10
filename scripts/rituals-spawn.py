@@ -40,7 +40,7 @@ def main() -> int:
     ap.add_argument("--execute", action="store_true")
     args = ap.parse_args()
 
-    workspace = Path.home() / ".openclaw" / "workspace"
+    workspace = Path.home() / "house/keep"
     rituals_file = workspace / "RITUALS.toml"
     
     if not rituals_file.exists():

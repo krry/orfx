@@ -15,7 +15,7 @@ from pathlib import Path
 
 def get_memory_files():
     """Get all memory files sorted by mtime (newest first)."""
-    memory_dir = Path.home() / ".openclaw" / "workspace" / "memory"
+    memory_dir = Path.home() / "house/keep" / "memory"
     
     if not memory_dir.exists():
         print(f"Error: memory directory not found at {memory_dir}")
