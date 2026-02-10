@@ -2,9 +2,24 @@
 
 const { AgentMailClient } = require('agentmail');
 
-const apiKey = process.env.AGENTMAIL_API_KEY;
+const { execFileSync } = require('child_process');
+
+function getApiKey() {
+  if (process.env.AGENTMAIL_API_KEY) return process.env.AGENTMAIL_API_KEY;
+  try {
+    return execFileSync(
+      'security',
+      ['find-generic-password', '-w', '-s', 'openclaw.agentmail.token'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
+    ).trim();
+  } catch {
+    return '';
+  }
+}
+
+const apiKey = getApiKey();
 if (!apiKey) {
-  console.error('AGENTMAIL_API_KEY not set');
+  console.error('AgentMail API key not found (env AGENTMAIL_API_KEY or keychain service openclaw.agentmail.token).');
   process.exit(1);
 }
 
@@ -12,11 +27,15 @@ const client = new AgentMailClient({ apiKey });
 
 async function testSend() {
   try {
-    // Send from worfeus@ inbox
+    // Send from worfeus@ inbox (plain text)
     const result = await client.inboxes.messages.send('worfeus@agentmail.to', {
       to: ['orfx@agentmail.to'],
-      subject: 'Test: Worfeus to Orfx',
-      body: 'Testing AgentMail send from worfeus@ to orfx@. If you receive this, the system works. 🐆\n\nSent via NPM SDK at ' + new Date().toISOString()
+      subject: 'Test: Worfeus → Orfx (plain text)',
+      text:
+        'Plain-text body test. If this renders, we are good.\n' +
+        'Sent: ' +
+        new Date().toISOString() +
+        '\n',
     });
     console.log('✓ Email sent successfully');
     console.log(JSON.stringify(result, null, 2));

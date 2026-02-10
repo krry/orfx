@@ -3,13 +3,17 @@
 const { AgentMailClient } = require('agentmail');
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execFileSync } = require('child_process');
 
 // Retrieve API key from keychain or environment
 let apiKey = process.env.AGENTMAIL_API_KEY;
 if (!apiKey) {
   try {
-    apiKey = execSync('security find-generic-password -s "openclaw.agentmail.token" -w', { encoding: 'utf8' }).trim();
+    apiKey = execFileSync(
+      'security',
+      ['find-generic-password', '-w', '-s', 'openclaw.agentmail.token'],
+      { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }
+    ).trim();
   } catch (error) {
     console.error('AGENTMAIL_API_KEY not set and not found in keychain');
     process.exit(1);
@@ -57,7 +61,7 @@ async function sendReply() {
     console.log(`📤 Sending reply to ${messageId} in ${inbox}...`);
     
     const result = await client.inboxes.messages.reply(inbox, messageId, {
-      body: replyBody
+      text: replyBody
     });
     
     console.log(`✅ Reply sent successfully`);
