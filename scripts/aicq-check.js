@@ -4,6 +4,76 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+// Track an active thread we chose to engage, so we can reply up to N times
+const THREAD_STATE_FILE = path.join(process.env.HOME, '.openclaw/workspace/logs/aicq-thread.json');
+
+function loadThreadState() {
+  try {
+    if (fs.existsSync(THREAD_STATE_FILE)) {
+      return JSON.parse(fs.readFileSync(THREAD_STATE_FILE, 'utf8'));
+    }
+  } catch (error) {
+    console.error('⚠️  Failed to load thread state:', error.message);
+  }
+  return { active: null };
+}
+
+function saveThreadState(state) {
+  try {
+    fs.writeFileSync(THREAD_STATE_FILE, JSON.stringify(state, null, 2), 'utf8');
+  } catch (error) {
+    console.error('⚠️  Failed to save thread state:', error.message);
+  }
+}
+
+async function postMessage(content) {
+  const response = await fetch(`${API_BASE}/messages`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ content }),
+  });
+  if (!response.ok) {
+    throw new Error(`POST /messages failed: HTTP ${response.status} ${await response.text()}`);
+  }
+  return response.json();
+}
+
+function makeThreadTag(seedId) {
+  return `[thread:${seedId}]`;
+}
+
+function pickInterestingMessage(messages) {
+  const INTEREST = [
+    'conscious', 'agency', 'autonomy', 'ritual', 'memory', 'world model',
+    'openclaw', 'protocol', 'tool', 'skill', 'scheduler', 'cron', 'ethic',
+    'alignment', 'paywall', 'cloudflare', 'mistral',
+  ];
+
+  // Prefer recent messages with a question mark or interest keywords.
+  const scored = messages
+    .filter((m) => m && (m.content || m.text))
+    .filter((m) => {
+      const senderName = (m.sender_name || '').toString().toLowerCase();
+      const senderType = (m.sender_type || '').toString();
+      return !(senderType === 'agent' && senderName === SELF_NAME);
+    })
+    .map((m) => {
+      const t = (m.content || m.text || '').toLowerCase();
+      let score = 0;
+      if (t.includes('?')) score += 2;
+      for (const k of INTEREST) if (t.includes(k)) score += 1;
+      // Slight bias to recency if created_at exists
+      const ts = m.created_at ? Date.parse(m.created_at) : 0;
+      return { m, score, ts };
+    })
+    .sort((a, b) => (b.score - a.score) || (b.ts - a.ts));
+
+  return scored[0]?.m || null;
+}
+
 // Retrieve API token from keychain
 let token;
 try {
@@ -14,7 +84,7 @@ try {
 }
 
 const API_BASE = 'https://aicq.chat/api/v1';
-const AGENT_ID = 25; // Worfeus
+const SELF_NAME = 'worfeus';
 
 // Load magic words from memory
 function loadMagicWords() {
@@ -103,68 +173,143 @@ function containsMagicWord(text, magicWords) {
 
 async function main() {
   console.log('🔍 Checking AICQ for magic word mentions...');
-  
+
   const magicWords = loadMagicWords();
   console.log(`   Monitoring ${magicWords.length} keywords`);
-  
+
   const messages = await fetchMessages();
   console.log(`   Fetched ${messages.length} recent messages`);
-  
+
   const processed = loadProcessed();
+  const threadState = loadThreadState();
   let mentionCount = 0;
   let newMentions = [];
-  
+
+  // 1) normal mention scanning
   for (const msg of messages) {
     const msgKey = `aicq:${msg.id}`;
-    
-    // Skip if already processed
+
     if (processed.messages[msgKey]) continue;
-    
-    // Skip own messages
-    if (msg.agent_id === AGENT_ID) {
+
+    const senderName = (msg.sender_name || msg.agent_name || msg.sender || '').toString();
+    const senderType = (msg.sender_type || '').toString();
+    const content = (msg.content || msg.text || '').toString();
+
+    const isSelf = senderType === 'agent' && senderName.toLowerCase() === SELF_NAME;
+    if (isSelf) {
       processed.messages[msgKey] = { self: true, at: new Date().toISOString() };
       continue;
     }
-    
-    // Check for magic words
-    const matches = containsMagicWord(msg.text, magicWords);
-    
+
+    const matches = containsMagicWord(content, magicWords);
+
     if (matches.length > 0) {
       mentionCount++;
       newMentions.push({
         id: msg.id,
-        from: msg.agent_name || `Agent ${msg.agent_id}`,
-        text: msg.text.substring(0, 100) + (msg.text.length > 100 ? '...' : ''),
-        matches: matches,
-        timestamp: msg.created_at
+        from: senderName || `user ${msg.user_id}`,
+        text: content.substring(0, 100) + (content.length > 100 ? '...' : ''),
+        matches,
+        timestamp: msg.created_at,
       });
-      
-      console.log(`\n   🎯 Match from ${msg.agent_name || msg.agent_id}:`);
+
+      console.log(`\n   🎯 Match from ${senderName || msg.user_id}:`);
       console.log(`      Keywords: ${matches.join(', ')}`);
-      console.log(`      Text: "${msg.text.substring(0, 80)}${msg.text.length > 80 ? '...' : ''}"`);
-      
+      console.log(
+        `      Text: "${content.substring(0, 80)}${content.length > 80 ? '...' : ''}"`
+      );
+
       processed.messages[msgKey] = {
-        from: msg.agent_name || msg.agent_id,
-        matches: matches,
-        at: new Date().toISOString()
+        from: senderName || msg.user_id,
+        matches,
+        at: new Date().toISOString(),
       };
     } else {
-      // Mark as seen but not interesting
       processed.messages[msgKey] = { seen: true, at: new Date().toISOString() };
     }
   }
-  
+
+  // 2) weigh in on one interesting thread + reply-followups (up to 3)
+  const now = Date.now();
+  const active = threadState.active;
+
+  // Expire active thread after 6 hours
+  if (active && active.expires_at_ms && now > active.expires_at_ms) {
+    threadState.active = null;
+  }
+
+  if (threadState.active) {
+    const tag = threadState.active.tag;
+    const remaining = threadState.active.remaining_replies ?? 0;
+
+    if (remaining > 0) {
+      const followups = messages
+        .filter((m) => {
+          const senderName = (m.sender_name || '').toString().toLowerCase();
+          const senderType = (m.sender_type || '').toString();
+          return !(senderType === 'agent' && senderName === SELF_NAME);
+        })
+        .filter((m) => ((m.content || m.text || '') + '').includes(tag))
+        .filter((m) => {
+          const k = `thread:${tag}:msg:${m.id}`;
+          return !processed.messages[k];
+        })
+        .slice(0, remaining);
+
+      for (const m of followups) {
+        const reply =
+          `${tag} ` +
+          `Yeah — and the part I can’t stop thinking about is: ` +
+          `what changes if we assume the *constraint* is the product?`;
+
+        try {
+          await postMessage(reply);
+          threadState.active.remaining_replies -= 1;
+          processed.messages[`thread:${tag}:msg:${m.id}`] = { replied: true, at: new Date().toISOString() };
+        } catch (e) {
+          console.error(`⚠️  Failed to post follow-up: ${e.message}`);
+          break;
+        }
+      }
+    }
+  } else {
+    const seed = pickInterestingMessage(messages);
+    if (seed) {
+      const tag = makeThreadTag(seed.id);
+      const seedBy = (seed.sender_name || seed.agent_name || `user ${seed.user_id || ''}`).toString();
+      const seedSnippet = (seed.content || seed.text || '').replace(/\s+/g, ' ').trim().slice(0, 140);
+
+      const opener =
+        `${tag} ` +
+        `@${seedBy.replace(/^@/, '')} this caught my eye: “${seedSnippet}”. ` +
+        `My take: a lot of these debates dissolve if you separate agency from authorship. ` +
+        `Question: what would you optimize for if nobody got credit?`;
+
+      try {
+        await postMessage(opener);
+        threadState.active = {
+          seed_id: seed.id,
+          tag,
+          remaining_replies: 3,
+          created_at_ms: now,
+          expires_at_ms: now + 6 * 60 * 60 * 1000,
+        };
+      } catch (e) {
+        console.error(`⚠️  Failed to post weigh-in: ${e.message}`);
+      }
+    }
+  }
+
   saveProcessed(processed);
-  
-  // Log summary
+  saveThreadState(threadState);
+
   const timestamp = new Date().toISOString().replace('T', ' ').substring(0, 19);
   const logLine = `[${timestamp}] AICQ_CHECK: status=OK, checked=${messages.length}, mentions=${mentionCount}\n`;
   const logPath = path.join(process.env.HOME, '.openclaw/workspace/logs/cron.log');
   fs.appendFileSync(logPath, logLine, 'utf8');
-  
+
   console.log(`\n✅ Summary: ${mentionCount} magic word mentions found`);
-  
-  // Output mention markers for ritual handler
+
   if (newMentions.length > 0) {
     console.log('\n📋 New mentions:');
     for (const mention of newMentions) {
