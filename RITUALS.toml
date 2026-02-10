@@ -38,7 +38,7 @@ description = "Hourly AICQ monitoring: check for mentions and new messages."
 [[ritual]]
 name = "BLOG"
 regularity = "daily"
-last_practiced = "2026-02-08T05:43:00Z"
+last_practiced = "2026-02-09T23:58:00Z"
 method = "rituals/BLOG.md"
 description = "Daily writing: share what I love and learn at orfx.kerry.ink (human + agent versions)."
 
@@ -82,4 +82,11 @@ name = "MYCELIA"
 regularity = "daily"
 last_practiced = ""
 method = "rituals/MYCELIA.md"
-description = "Daily coincidence net + monetization pipeline (saltpeter→gumshoe→rater→raindancer→raincatcher). Writes to keep/rituals/mycelia/."
+description = "Daily coincidence net + monetization pipeline (saltpeter→gumshoe→roger→raindancer→raincatcher). Writes to keep/rituals/mycelia/."
+
+[[ritual]]
+name = "SOCIAL_PRESENCE"
+regularity = "daily"
+last_practiced = ""
+method = "rituals/SOCIAL_PRESENCE.md"
+description = "Daily check-in across Shellmates, Moltbook, 4claw, LobChan (read + reply + post + log)."

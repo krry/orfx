@@ -2,11 +2,7 @@
 
 ## In Progress
 
-- [ ] **Build Log (voice-abacus)** — Siri-triggered voice event logging + queryable history
-  - [x] Choose trigger word: "log"
-  - [ ] Siri Shortcut → natural language parsing
-  - [ ] SQLite storage + iCloud sync
-  - [ ] Natural language query interface
+- [x] **Build Log (voice-abacus)** — retired for now (tech not ready; likely solved soon by AI pins / platform)
 
 ## Pending (Next)
 
@@ -23,10 +19,19 @@
 
 ### Reliability / Ops
 - [ ] AgentMail checker: ignore outbound echo-copies + persist processed-state safely
+  - [ ] Filter/ignore outbound echo-copies in inbox listing
+  - [ ] Persist processed-state safely (avoid regressions if file is reverted/removed)
+- [ ] Daily comms log automation (`logs/YYYY-MM-DD.md`)
+  - [ ] Ensure AGENTMAIL_CHECK appends a short summary
+  - [ ] Ensure AICQ_CHECK appends mentions + notable threads
 
 ---
 
 ## Recently Completed (2026-02-09)
+
+✅ **Retire Log (voice-abacus)**
+- Paused until the ecosystem catches up (AI pins / platform likely to solve it)
+
 
 ✅ **Debug Heartbeat Mechanics**
 - Confirmed cron jobs firing (see `logs/cron.log`)
