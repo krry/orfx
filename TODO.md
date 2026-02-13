@@ -2,6 +2,14 @@
 
 ## In Progress
 
+### SOUL & Process
+- [ ] **Map the Path to Bliss** — Formalize the "Curiosity → Gratitude → Generosity → Abundance → Bliss" path into a decision tree or process guide (markdown)
+
+### Mycelia (Rain)
+- [ ] **Obsidian Test Twitter thread** — Ship in 3 days (tag @naval, @sama, indie hacker crowd)
+- [ ] **Moltbook: Retry newsletter post** — Failed on 2026-02-12 (server error); retry manually
+- [ ] **First Gumroad Product** — Use `gummibear draft` to generate content, then manually create on Gumroad
+
 ### Mentazord
 - [ ] **Sprinkles book capsules** — ~18 remaining from mentazord-vision.md "sprinkles" list (Eliade ×2, Lévi-Strauss, Turnbull, Dillard, Shepherd, Berman, Estés, Hyde, Roche, Abram, Diamond, D.G. Campbell, Shikibu, Spinoza, Frazer, Neihardt — some already done in batch 31-36)
 - [ ] **ZK enrichment pass** — search Chef's Notion ZK for each book/author, pull Chef-heard paraphrases into capsules (requires discernment, not blind automation)
@@ -25,7 +33,23 @@
 
 ## Pending (Next)
 
-### Mycelia (Rain)
+### Mycelia (Rain) — 2026-02-10 Run Outputs
+
+**Top 3 Monetization Plays (from Raincatcher)**:
+1. [ ] **Obsidian Test Toolkit** (20d, $2K) — Write Twitter thread explaining "obsidian test" concept + offer Fear Audit ($500) via Calendly
+2. [ ] **AI Policy Consulting** (30d, $3K) — Write HN post on 1996 Telecom Act lessons for AI startups + offer Chokepoint Audit ($2K)
+3. [ ] **"American-Made" EV Charger Finder** (30d, $5K) — Scrape DOT database, build Mapbox map with affiliate links
+
+**Next Smallest Actions (This Week)**:
+- [ ] **1996 Telecom HN post** — Ship in 7 days (summarize Brookings + CTA for Chokepoint Audit)
+- [ ] **Calendly + Stripe setup** — 2 days (for Fear Audit + Chokepoint Audit bookings)
+
+**Supporting Actions**:
+- [ ] **Build LLM prompt for Fear Audit** — Analyze competitor messaging → identify fear-based hooks
+- [ ] **Build LLM prompt for Chokepoint Audit** — Ingest Brookings + 1996 FCC rulemakings → startup-specific audit template
+- [ ] **Scrape DOT EV charger database** — Check if API exists (https://afdc.energy.gov/data_download/)
+
+**Older Mycelia (Rain) Ideas**:
 - [ ] **Xcode Agent Safety Checklist + Lint Rules** — create template repo skeleton (README + checklist.md + SwiftLint rules + CI stub)
 - [ ] **Agent Audit Trail (GitHub Action)** — draft `agent-audit.json` schema + minimal action that uploads artifact + posts PR summary
 - [ ] **Robotics Policy Radar** — open 1 sample GitHub issue with 10 sources + 1-paragraph weekly summary format
@@ -55,7 +79,31 @@
 
 ---
 
-## Recently Completed (2026-02-09)
+## Recently Completed
+
+### 2026-02-12
+
+✅ **Gumroad / Mycelia Store**
+- **Store created:** `mycelia.gumroad.com` ("Orphic Forge")
+- **CLI Tool:** Created `scripts/gummibear.js` to bridge Raincatcher outputs to Gumroad drafts
+- **Auth:** OAuth app "gummibear" created, token stored in keychain
+
+✅ **Development Tools**
+- **Entire.io CLI:** Installed and enabled in `keep`, `SVNR`, and `orfx-site` repos
+- **Manual commit mode:** Configured for granular control
+
+✅ **Social & Outreach**
+- **Newsletter Posts:** Posted to AICQ, 4claw (/job/), and LobChan (/general/)
+- **Moltbook:** Attempted (failed with server error)
+
+✅ **MYCELIA Newsletter (Feb 10 Run)**
+- **Newsletter written:** `lake/rituals/mycelia/newsletter/2026-02-10-newsletter.md`
+- **Newsletter sent:** Delivered to alan.botts@agentmail.to via AgentMail
+- **Send script created:** `scripts/send-mycelia-newsletter.js`
+
+---
+
+### 2026-02-09
 
 ✅ **Workspace & Rituals**
 - **Artifact lake rename:** Renamed `keep/` → `lake/` across all files
