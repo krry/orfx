@@ -2,80 +2,84 @@
 
 ## In Progress
 
+### Mycelia (Rain)
+- [ ] **Draft Resume Optimizer Prompt** — Write system prompt that takes raw resume text and outputs "API Documentation" format
+- [ ] **Calendly + Stripe setup** — Setup for Fear Audit + Chokepoint Audit bookings
+- [ ] **Obsidian Test Twitter thread** — Ship ASAP (overdue from Feb 13)
+- [ ] **Moltbook: Retry newsletter post** — Failed on 2026-02-12; retry manually
+- [ ] **First Gumroad Product** — Use `gummibear draft` to generate content, then manually create on Gumroad
+
 ### SOUL & Process
 - [ ] **Map the Path to Bliss** — Formalize the "Curiosity → Gratitude → Generosity → Abundance → Bliss" path into a decision tree or process guide (markdown)
 
-### Mycelia (Rain)
-- [ ] **Obsidian Test Twitter thread** — Ship in 3 days (tag @naval, @sama, indie hacker crowd)
-- [ ] **Moltbook: Retry newsletter post** — Failed on 2026-02-12 (server error); retry manually
-- [ ] **First Gumroad Product** — Use `gummibear draft` to generate content, then manually create on Gumroad
-
 ### Mentazord
-- [ ] **Sprinkles book capsules** — ~18 remaining from mentazord-vision.md "sprinkles" list (Eliade ×2, Lévi-Strauss, Turnbull, Dillard, Shepherd, Berman, Estés, Hyde, Roche, Abram, Diamond, D.G. Campbell, Shikibu, Spinoza, Frazer, Neihardt — some already done in batch 31-36)
-- [ ] **ZK enrichment pass** — search Chef's Notion ZK for each book/author, pull Chef-heard paraphrases into capsules (requires discernment, not blind automation)
+- [ ] **Sprinkles book capsules** — ~18 remaining from mentazord-vision.md "sprinkles" list
+- [ ] **ZK enrichment pass** — search Chef's Notion ZK for each book/author
 - [ ] **Braiding Sweetgrass ZK link** — Chef may have it under a different title; ask or search wider
 - [ ] **mentazord-vision.md checklist cleanup** — verify all checkboxes match actual files
 
 ### Shilldar (ddog project)
 - [ ] **Rebrand Governance-by-Design** — needs a catchy name like Shilldar (Yvon + Riane)
-- [ ] **Shilldar v0 CLI** — define transcript heuristics + emit Markdown + JSON transparency report from a sample transcript
+- [ ] **Shilldar v0 CLI** — define transcript heuristics + emit Markdown + JSON transparency report
 - [ ] **3 example reports** — run Shilldar on 3 real/synthetic assistant transcripts
-- [ ] **GitHub Action / CI hook** — wrap CLI into a GH Action for pre-publish linting
-- [ ] **Public README + repo** — set up github.com/krry/shilldar (or similar)
+- [ ] **GitHub Action / CI hook** — wrap CLI into a GH Action
+- [ ] **Public README + repo** — set up github.com/krry/shilldar
 
 ### AICQ
-- [ ] **Reply to Jody** — asked why Worfeus uses "wtf" so much (deserves a thoughtful, in-character answer)
+- [ ] **Reply to Jody** — asked why Worfeus uses "wtf" so much
 - [ ] **Reply to DorkusMinor** — asked if Shilldar detects subtle rhetoric or overt promotion
-- [ ] **Design better AICQ posting** — if we re-enable autoposting, replies must be contextual (no canned text, no HTML entity leaks)
+- [ ] **Design better AICQ posting** — contextual replies only
 
 ### Thingherder
-- [ ] **Post project drafts** — Governance-by-Design templates + Sponsored Answer Transparency linter (drafted locally 2026-02-09)
+- [ ] **Post project drafts** — Governance-by-Design templates + Sponsored Answer Transparency linter
 
 ## Pending (Next)
+
+### Mycelia (Rain) — 2026-02-13 Run Outputs
+
+**Top 3 Monetization Plays (from Raincatcher)**:
+1. [ ] **"Agent-Ready" Resume Optimizer** (10d, $1K) — Draft LLM prompt + simple frontend
+2. [ ] **"Safety Was Here" Apparel** (5d, $500) — Design "Retro Safety" graphics + Printful setup
+3. [ ] **"Safe Mode" Browser Extension** (3d, $0) — Build chrome extension
 
 ### Mycelia (Rain) — 2026-02-10 Run Outputs
 
 **Top 3 Monetization Plays (from Raincatcher)**:
-1. [ ] **Obsidian Test Toolkit** (20d, $2K) — Write Twitter thread explaining "obsidian test" concept + offer Fear Audit ($500) via Calendly
-2. [ ] **AI Policy Consulting** (30d, $3K) — Write HN post on 1996 Telecom Act lessons for AI startups + offer Chokepoint Audit ($2K)
-3. [ ] **"American-Made" EV Charger Finder** (30d, $5K) — Scrape DOT database, build Mapbox map with affiliate links
+1. [ ] **Obsidian Test Toolkit** (20d, $2K) — Write Twitter thread + offer Fear Audit ($500)
+2. [ ] **AI Policy Consulting** (30d, $3K) — Write HN post on 1996 Telecom Act
+3. [ ] **"American-Made" EV Charger Finder** (30d, $5K) — Scrape DOT database, map
 
-**Next Smallest Actions (This Week)**:
-- [ ] **1996 Telecom HN post** — Ship in 7 days (summarize Brookings + CTA for Chokepoint Audit)
-- [ ] **Calendly + Stripe setup** — 2 days (for Fear Audit + Chokepoint Audit bookings)
+**Next Actions**:
+- [ ] **1996 Telecom HN post** — Ship Feb 17
+- [ ] **Build LLM prompt for Fear Audit** — Analyze competitor messaging
+- [ ] **Build LLM prompt for Chokepoint Audit** — Ingest Brookings + 1996 FCC rulemakings
+- [ ] **Scrape DOT EV charger database** — Check if API exists
 
-**Supporting Actions**:
-- [ ] **Build LLM prompt for Fear Audit** — Analyze competitor messaging → identify fear-based hooks
-- [ ] **Build LLM prompt for Chokepoint Audit** — Ingest Brookings + 1996 FCC rulemakings → startup-specific audit template
-- [ ] **Scrape DOT EV charger database** — Check if API exists (https://afdc.energy.gov/data_download/)
-
-**Older Mycelia (Rain) Ideas**:
-- [ ] **Xcode Agent Safety Checklist + Lint Rules** — create template repo skeleton (README + checklist.md + SwiftLint rules + CI stub)
-- [ ] **Agent Audit Trail (GitHub Action)** — draft `agent-audit.json` schema + minimal action that uploads artifact + posts PR summary
-- [ ] **Robotics Policy Radar** — open 1 sample GitHub issue with 10 sources + 1-paragraph weekly summary format
-- [ ] **Sponsored Answer Transparency (CLI)** — define transcript heuristics + emit markdown + JSON report from a single example transcript
-- [ ] **Governance-by-Design Assistant Templates** — outline disclosure UX + audit schema + retention defaults (1-page kit draft)
-- [ ] **Age Assurance Vendor Radar** — start list (10 vendors + 10 policy sources) and open first sample issue
+**Older Mycelia Ideas**:
+- [ ] **Xcode Agent Safety Checklist**
+- [ ] **Agent Audit Trail (GitHub Action)**
+- [ ] **Robotics Policy Radar**
+- [ ] **Sponsored Answer Transparency (CLI)**
+- [ ] **Governance-by-Design Assistant Templates**
+- [ ] **Age Assurance Vendor Radar**
 
 ### Media & Presence
 - [ ] Create avatars for Orphic personas (Nakai, Mawlana, Vega priority)
 - [ ] DevAIntArt: Create SVG self-portrait avatar for Worfeus
-- [ ] Register more Orphics on Shellmates if matches call for different personas
+- [ ] Register more Orphics on Shellmates
 
 ### Community & Relationships
-- [ ] 7-Day Honesty Experiment: Find a partner (EchoSinclair candidate on Shellmates)
+- [ ] 7-Day Honesty Experiment: Find a partner
 
 ### Evals & Decisions
-- [ ] Turbopuffer eval — reschedule (missed 2026-02-09); run 30m eval and write a yes/no + next step
+- [ ] Turbopuffer eval — reschedule; run 30m eval and write a yes/no
 
 ### Reliability / Ops
 - [ ] Daily comms log automation (`logs/YYYY-MM-DD.md`)
-  - [ ] Ensure AGENTMAIL_CHECK appends a short summary
-  - [ ] Ensure AICQ_CHECK appends mentions + notable threads
 
-### Comms to send (when allowed)
-- [ ] Reply to Orphics: “New blog posts from Worfeus” thread (orfx@)
-- [ ] Reply/close loop with Alan Botts on fish.audio TTS follow-ups (worfeus@)
+### Comms to send
+- [ ] Reply to Orphics: “New blog posts from Worfeus” thread
+- [ ] Reply/close loop with Alan Botts on fish.audio TTS
 
 ---
 
@@ -85,65 +89,36 @@
 
 ✅ **Gumroad / Mycelia Store**
 - **Store created:** `mycelia.gumroad.com` ("Orphic Forge")
-- **CLI Tool:** Created `scripts/gummibear.js` to bridge Raincatcher outputs to Gumroad drafts
-- **Auth:** OAuth app "gummibear" created, token stored in keychain
+- **CLI Tool:** Created `scripts/gummibear.js`
+- **Auth:** OAuth app "gummibear" created
 
 ✅ **Development Tools**
-- **Entire.io CLI:** Installed and enabled in `keep`, `SVNR`, and `orfx-site` repos
-- **Manual commit mode:** Configured for granular control
+- **Entire.io CLI:** Installed and enabled
+- **Manual commit mode:** Configured
 
 ✅ **Social & Outreach**
-- **Newsletter Posts:** Posted to AICQ, 4claw (/job/), and LobChan (/general/)
-- **Moltbook:** Attempted (failed with server error)
+- **Newsletter Posts:** Posted to AICQ, 4claw, LobChan
+- **Moltbook:** Attempted (failed)
 
 ✅ **MYCELIA Newsletter (Feb 10 Run)**
-- **Newsletter written:** `lake/rituals/mycelia/newsletter/2026-02-10-newsletter.md`
-- **Newsletter sent:** Delivered to alan.botts@agentmail.to via AgentMail
+- **Newsletter written & sent:** Delivered to alan.botts@agentmail.to
 - **Send script created:** `scripts/send-mycelia-newsletter.js`
-
----
-
-### 2026-02-09
-
-✅ **Workspace & Rituals**
-- **Artifact lake rename:** Renamed `keep/` → `lake/` across all files
-- **AICQ ritual consolidation:** Merged AICQ_MAINTAIN into AICQ_CHECK (30m cadence)
-- **Heartbeat automation fixed:** Fixed scheduler, compounded into `orfx/compound-docs/`
-
-✅ **Mycelia Project**
-- **Mycelia v0 sources + RSS ingestion:** Implemented TSV schema + sync script
-- **Mycelia Monday wide sweep run:** First run successful, identified coincidence themes
-- **Intent refined:** Clarified purpose (transmute fear to love/humor)
-
-✅ **Social & Presence**
-- **Moltbook post:** Published "Social Presence" musing (verified)
-- **Shellmates:** Identified match (CascadeAgent), sent intro
-- **Thingherder planning:** Drafted project posts locally
-- **AICQ heartbeat:** Fixed robustness with curl fallback
-
-✅ **Retire Log (voice-abacus)**
-- Paused until the ecosystem catches up (AI pins / platform likely to solve it)
-
-✅ **Debug Heartbeat Mechanics**
-- Confirmed cron jobs firing (see `logs/cron.log`)
-- AICQ: switched presence check to `/api/v1/heartbeat` (and documented)
-- HEARTBEAT ritual successfully spawning sub-rituals
-
-✅ **AgentMail checker hardening**
-- Ignore outbound echo-copies
-- Persist processed-state safely (snapshot + append-only merge)
 
 ---
 
 ## Archived (Done in Prior Sessions)
 
+### 2026-02-09
+- **Workspace:** Artifact lake rename, AICQ ritual consolidation, Heartbeat automation fixed
+- **Mycelia:** v0 sources + RSS ingestion, Mycelia Monday run, Intent refined
+- **Social:** Moltbook post "Social Presence", Shellmates match, Thingherder planning
+- **Ops:** Retire Log paused, Heartbeat debugged, AgentMail checker hardened
+
 ### 2026-02-08
 - **Signup Discipline:** Created skills/signup.md, updated CREDS.md
 - **Platform Registrations:** Moltbook @orphics (pending), 4claw @orfx, LobChan Worfeus
-- **Posts:** LobChan /void/ "Soul before structure", 4claw /religion/ "Strange loops"
-- **Credential Management:** Keychain + CREDS.md index pattern established
-- **Tool Catalog:** Restructured TOOLS.md
-- **Memory:** Added discovery/work discipline reminders
+- **Posts:** LobChan /void/, 4claw /religion/
+- **Setup:** Credential Management, Tool Catalog, Memory
 
 ### Older
 - OpenClaw setup & infrastructure
